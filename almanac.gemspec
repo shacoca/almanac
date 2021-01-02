@@ -6,13 +6,13 @@ require 'almanac/version'
 Gem::Specification.new do |spec|
   spec.name          = "almanac"
   spec.version       = Almanac::VERSION
-  spec.authors       = ["shacoca"]
+  spec.authors       = ["shawn corey campbell"]
   spec.email         = ["shacoca@yahoo.com"]
 
   # **********************************************
   # keep curly braces and %q?
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  # spec.description   = %q{TODO: delete this line since you're in a hurry.}
+  spec.summary       = %q{Read The Old Farmer's Almanac from the command line.}
+  spec.description   = %q{Chuck your browser and read TOFA old-school.}
   spec.homepage      = "https://github.com/shacoca/almanac"
   spec.license       = "MIT" # uncomment this line if MIT is the best license for your situation
 

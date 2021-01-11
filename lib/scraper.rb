@@ -1,7 +1,17 @@
-require_relative './almanac.rb'
+require_relative "../config/environment.rb"
 
 class Scraper
+    attr_accessor :main_site, :section_front
+    
+    def self.main_site
+        @main_site =  Nokogiri::HTML(open(SITE))
+    end
 
-  def get_front_page
-    almanac_front_page = Nokogiri::HTML(open("https://www.almanac.com"))
-  end
+    def self.section_front(section)
+        section_front_url = "#{SITE}/#{section}"
+        @section_front = Nokogiri::HTML(open(section_front_url))
+    end
+
+
+
+end

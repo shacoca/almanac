@@ -1,3 +1,7 @@
 #!/usr/bin/env ruby
 
-require "almanac"
+# require "bundler/setup"
+# require "almanac"
+require_relative "../config/environment.rb"
+
+Almanac::Almanac.new(SITE).run

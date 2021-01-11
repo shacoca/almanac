@@ -1,21 +1,31 @@
+# First Load Bundler
 require 'bundler'
+# Require the Gems  from the Gemfile using Bundler
 Bundler.require
 
-require_all 'lib'
+# load libraries
+require_all './lib'
+
+# load other stuff
+# require_all 'lib'
 require 'net/http'
 require 'uri'
 require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
+require "bundler/setup"
+require "almanac"
+
 # module Concerns
 # end
 
-# TODO: Find out where these lines go?
-# def reload!
-#     load './lib'
-# end
+SITE = "https://www.almanac.com"
 
-# task :console do
-#     Pry.start
-# end
+def reload!
+    load_all './lib'
+end
+
+task :console do
+    Pry.start
+end

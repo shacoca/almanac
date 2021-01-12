@@ -8,7 +8,7 @@ module Almanac
     attr_accessor :site, :pubdate, :issue
 
     def initialize(main_site)
-      @site = Scraper.main_site
+      @site = Scraper.scrape_main_site
     end
 
     def welcome
@@ -57,9 +57,10 @@ module Almanac
 
     def section_menu
       puts "\n    \e[1mSECTIONS\e[22m\n"
-      @site.css("div ul#superfish-1 li a.sf-depth-1").each_with_index do |sec_name, i|
+      sf1 = @site.css("div ul#superfish-1 li a.sf-depth-1")
+      Scraper.get_piece_sections.each_with_index do |sec_name, i|
         # @site.css("div ul#superfish-1 li a").each_with_index do |sec, i|
-        puts "#{featured.count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n"
+        puts "#{featured.count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n" unless sec_name.text == sf1[-1].text
 
       end
     end
@@ -72,21 +73,26 @@ module Almanac
 
     def input
             
-      choice = gets.strip.to_i
+      user_input = gets.strip
+      user_input.to_i == nil ? input : choice = user_input.to_i
 
-      case choice
-      when choice >= 1 && choice <= @site.css("div.view a h2").count
+      puts "You chose #{choice}"
+      if choice >= 1 && choice <= @site.css("div.view a h2").count
         # fetch featured[choice]
+        puts "You chose a feature! Good for you."
 
-      when choice > @site.css("div.view a h2").count
+      elsif choice > @site.css("div.view a h2").count
         # fetch section headlines
           # form url
           
         # display section menu
+        puts "Well, lemme go get that section for ya!"
     #   when 2
     #   when 3
     #   when 4
-    #   when 5
+      # when 5
+      else
+        puts "Sorry, buddy. I don't know what you're talkin about."
       end
     end
 
@@ -94,8 +100,9 @@ module Almanac
       welcome
       main_menu
       section_menu
-      input  # get input/parse input
-      # fetch piece, display piece
+      input
+      get_feature_or_section_front_page
+      
       
     end
   

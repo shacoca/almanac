@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 
 class Piece
-    attr_accessor :title, :subhead, :section, :pubdate, :url, :text
+    attr_accessor :title, :subhead, :section, :pubdate, :author, :url, :text
 
     @@all = []
 
@@ -10,7 +10,7 @@ class Piece
         save
     end
 
-    def create_from_scrape(piece_hash = {title: "hhaaaaaaaaay!!", subhead: "wuddup?", section: "not_a_section_object", pubdate: Time.new.localtime.inspect, url: "404"})
+    def create_from_scrape(piece_hash = {title: "hhaaaaaaaaay!!", subhead: "wuddup?", section: "not_a_section_object", pubdate: Time.new.localtime.inspect, author: "Haywood Jackson", url: "404"})
         Piece.new(piece_hash)
     end
 

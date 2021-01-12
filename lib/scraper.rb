@@ -17,7 +17,8 @@ class Scraper
     def self.get_piece_subhead
     end
 
-    def self.get_piece_section
+    def self.get_piece_sections
+        @main_site.css("div ul#superfish-1 li a.sf-depth-1")
     end
 
     def self.get_piece_pubdate

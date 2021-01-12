@@ -30,9 +30,13 @@ module Almanac
 
     end
 
+    def featured
+      @site.css("div.view").each {|i| i.css("a h2").text}
+    end
+
     def main_menu
       # display Today's Companion (1-5)
-      featured = @site.css("div.view").each {|i| i.css("a h2").text}
+      # featured = @site.css("div.view").each {|i| i.css("a h2").text}
 
       puts "\n\n\e[1m    Today's Companion\e[22m\n"
 
@@ -51,13 +55,11 @@ module Almanac
       #   sleep (pause_unit * 1.4)
     end
 
-    # weather (wx menu)
-
     def section_menu
       puts "\n    \e[1mSECTIONS\e[22m\n"
       @site.css("div ul#superfish-1 li a.sf-depth-1").each_with_index do |sec_name, i|
         # @site.css("div ul#superfish-1 li a").each_with_index do |sec, i|
-        puts "#{@site.css("div.view").count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n"
+        puts "#{featured.count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n"
 
       end
     end
@@ -70,22 +72,22 @@ module Almanac
 
     def input
             
-      choice = gets.strip
+      choice = gets.strip.to_i
 
-      second = Piece.new(choice, "wicked pisser!")
-      puts second.title
-      puts second.section
+      case choice
+      when choice >= 1 && choice <= @site.css("div.view a h2").count
+        # fetch featured[choice]
 
-    #   case choice
-    #   when choice >= 1 && choice < 
-    #     # fetch section headlines
-    #       # form url
+      when choice > @site.css("div.view a h2").count
+        # fetch section headlines
+          # form url
           
-    #     # display section menu
+        # display section menu
     #   when 2
     #   when 3
     #   when 4
     #   when 5
+      end
     end
 
     def run

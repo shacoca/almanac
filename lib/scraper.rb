@@ -11,6 +11,11 @@ class Scraper
         @section_front = Nokogiri::HTML(open("#{main_site}/#{section_url_caboose}"))
     end
 
+    def self.scrape_piece
+        piece = {}
+
+    end
+
     def self.get_piece_title
     end
 
@@ -32,3 +37,5 @@ class Scraper
     end
 
 end
+
+# Scraper.get_piece_sections.css("div.news-field-body").attr("href")

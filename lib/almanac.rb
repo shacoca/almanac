@@ -57,11 +57,9 @@ module Almanac
 
     def section_menu
       puts "\n    \e[1mSECTIONS\e[22m\n"
-      sf1 = @site.css("div ul#superfish-1 li a.sf-depth-1")
-      Scraper.get_piece_sections.each_with_index do |sec_name, i|
-        # @site.css("div ul#superfish-1 li a").each_with_index do |sec, i|
-        puts "#{featured.count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n" unless sec_name.text == sf1[-1].text
-
+      sections = Scraper.get_piece_sections
+      sections.each_with_index do |sec_name, i|
+        puts "#{featured.count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n" unless sec_name.text == sections[-1].text
       end
     end
 
@@ -102,10 +100,21 @@ module Almanac
       section_menu
       input
       get_feature_or_section_front_page
-      
-      
+      display_feature or display_selected_section_menu
+
     end
   
+    def get_feature_or_section_front_page
+      
+    end
+
+    def display_feature
+    end
+
+    def display_selected_section_menu
+    end
+    
+    
 
   end
 

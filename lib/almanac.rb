@@ -72,12 +72,12 @@ module Almanac
     def input
             
       user_input = gets.strip
+      puts "You chose #{user_input}."
       user_input.to_i == nil ? input : choice = user_input.to_i
 
-      puts "You chose #{choice}"
       if choice >= 1 && choice <= @site.css("div.view a h2").count
         # fetch featured[choice]
-        puts "You chose a feature! Good for you."
+        puts "Hey, that's a feature! Good for you!"
 
       elsif choice > @site.css("div.view a h2").count
         # fetch section headlines
@@ -85,11 +85,13 @@ module Almanac
           
         # display section menu
         puts "Well, lemme go get that section for ya!"
+
     #   when 2
     #   when 3
     #   when 4
       # when 5
       else
+        puts "#{user_input}??"
         puts "Sorry, buddy. I don't know what you're talkin about."
       end
     end

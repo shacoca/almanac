@@ -8,7 +8,9 @@ module Almanac
     attr_accessor :site, :pubdate, :issue
 
     def initialize(main_site)
-      @site = Scraper.scrape_main_site
+      @site = Scraper.scrape_main_site(main_site)
+      # @pubdate = pubdate:
+      # @issue = issue:
     end
 
     def welcome
@@ -57,7 +59,7 @@ module Almanac
 
     def section_menu
       puts "\n    \e[1mSECTIONS\e[22m\n"
-      sections = Scraper.get_piece_sections
+      sections = Scraper.get_piece_sections(@site)
       sections.each_with_index do |sec_name, i|
         puts "#{featured.count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n" unless sec_name.text == sections[-1].text
       end
@@ -73,23 +75,18 @@ module Almanac
             
       user_input = gets.strip
       puts "You chose #{user_input}."
-      user_input.to_i == nil ? input : choice = user_input.to_i
+      user_input.to_i == nil ? choice = input : choice = user_input.to_i
 
       if choice >= 1 && choice <= @site.css("div.view a h2").count
         # fetch featured[choice]
-        puts "Hey, that's a feature! Good for you!"
+        # puts "Hey, that's a feature! Good for you!"
+        # piece = Scraper.scrape_piece("#{(featured[choice - 1].css("a").last.attr("href"))}")
+        # piece.parse
+        display_feature("#{(featured[choice - 1].css("a").last.attr("href"))}")
 
       elsif choice > @site.css("div.view a h2").count
-        # fetch section headlines
-          # form url
-          
-        # display section menu
-        puts "Well, lemme go get that section for ya!"
-
-    #   when 2
-    #   when 3
-    #   when 4
-      # when 5
+        # puts "Well, lemme go get that section for ya!"
+        display_selected_section_fp_menu(url)
       else
         puts "#{user_input}??"
         puts "Sorry, buddy. I don't know what you're talkin about."
@@ -101,19 +98,28 @@ module Almanac
       main_menu
       section_menu
       input
-      get_feature_or_section_front_page
-      display_feature or display_selected_section_menu
+      display_feature_or_display_selected_section_menu
+      # get_feature_or_section_front_page(url)
+    
 
+    end
+
+    def display_feature(url_ext)
+      f = get_feature(url_ext)
+      feature_container = parse_feature(f)
+      puts feature_container
+      # xx = f.css("")
+    end
+
+    def get_feature(url_ext)
+      Scraper.scrape_piece(url_ext) #=> returns feature
     end
   
-    def get_feature_or_section_front_page
-      
+    def parse_feature(feature)
+      feature.css("p")
     end
 
-    def display_feature
-    end
-
-    def display_selected_section_menu
+    def display_selected_section_fp_menu(url)
     end
     
     

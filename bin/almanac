@@ -4,4 +4,4 @@
 # require "almanac"
 require_relative "../config/environment.rb"
 
-Almanac::Almanac.new(SITE).run
+Almanac::Almanac.new(SITE).welcome

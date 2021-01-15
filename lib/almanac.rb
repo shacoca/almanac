@@ -30,6 +30,8 @@ module Almanac
 
       sleep (pause_unit * 4)
 
+      run
+
     end
 
     def featured
@@ -37,24 +39,14 @@ module Almanac
     end
 
     def main_menu
-      # display Today's Companion (1-5)
-      # featured = @site.css("div.view").each {|i| i.css("a h2").text}
 
       puts "\n\n\e[1m    Today's Companion\e[22m\n"
 
-      # featured.each_with_index{|f, i| puts "#{i+1}. #{f}" if f}
       featured.each_with_index do |f, i|
         puts "\n\e[1m#{i+1}. #{f.css("h2").text}\e[22m\n#{f.css("div.news-field-body").text}\n\n" if f.css("h2").text.length > 0
         sleep (0.3)
       end
 
-      puts "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section below.: "
-
-      # section menu (6-??)
-      
-      # featured.each_with_index do |f, i|
-      #   puts "\n\e[1m#{i+1}. #{f.css("h2").text}\e[22m\n#{f.css("div.news-field-body").text}\n" if f.css("h2").text.length > 0
-      #   sleep (pause_unit * 1.4)
     end
 
     def section_menu
@@ -63,6 +55,9 @@ module Almanac
       sections.each_with_index do |sec_name, i|
         puts "#{featured.count + i}. #{sec_name.text}\n#{sec_name.css("div.news-field-body").text}\n" unless sec_name.text == sections[-1].text
       end
+      puts "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section below.: "
+
+
     end
 
     def weather_menu
@@ -90,24 +85,14 @@ module Almanac
       else
         puts "#{user_input}??"
         puts "Sorry, buddy. I don't know what you're talkin about."
+        input
       end
-    end
-
-    def run
-      welcome
-      main_menu
-      section_menu
-      input
-      display_feature_or_display_selected_section_menu
-      # get_feature_or_section_front_page(url)
-    
-
     end
 
     def display_feature(url_ext)
       f = get_feature(url_ext)
       feature_container = parse_feature(f)
-      puts feature_container
+      pp feature_container.text
       # xx = f.css("")
     end
 
@@ -121,8 +106,19 @@ module Almanac
 
     def display_selected_section_fp_menu(url)
     end
+
+    def again?
+      puts "Would you like to read another selection? (y or n): "
+      
+    end
     
-    
+    def run
+      # welcome
+      main_menu
+      section_menu
+      input
+      again?
+    end  
 
   end
 

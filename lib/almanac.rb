@@ -15,7 +15,6 @@ module Almanac
 
     def welcome
       puts "\e[2J"
-      puts clear
       pause_unit = 0.13 * 3
       puts "\n\n#{@site.css("h1").text}\n"
       foot = @site.css("div#footerinfo").text.partition("P.")
@@ -58,11 +57,8 @@ module Almanac
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
       sections = Scraper.scrape_sections(@site)
       sections.each_with_index do |sec_name, i|
-        puts "#{i + 1}. #{sec_name.text}\n" unless sec_name.text == sections[-1].text
+        puts "#{i + featured.count}. #{sec_name.text}\n" unless sec_name.text == sections[-1].text
       end
-      puts "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section below.: "
-
-
     end
 
     def section_front_page_menu
@@ -74,8 +70,10 @@ module Almanac
 
     def choose
       num_features = @site.css("div.view a h2").count
+      print "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section. (0 to exit) "
+
       user_input = gets.strip
-      puts "You chose #{user_input}."
+      puts "\nYou chose #{user_input}.\n"
       user_input.to_i == nil ? choice = input : choice = user_input.to_i - 1
 
       if choice >= 0 && choice < num_features
@@ -83,25 +81,27 @@ module Almanac
 
       elsif choice >= num_features
         display_selected_section_fp_menu(sections[choice])
+      elsif choice == "0"
+        close_the_almanac
       else
         puts "#{user_input}??"
         puts "Sorry, buddy. I don't know what you're talkin about."
-        input
+        choose
       end
     end
 
     def display_feature(url_ext)
-      # f = get_feature(url_ext)
-      feature_container = parse_feature(get_feature(url_ext))
-      # mock-up and display
+      f = get_feature(url_ext)
+      feature_container = parse_feature(f)
+      # TODO: get String from parse and fix the following code
       puts "\n\n\n\e[7h"
       feature_container.each do |line|
         if line.text.start_with?("Photo ")
           puts "    \e[3;4m#{line.text}\e[0m\n" #how you say italics?
         # elsif line.text.start_with?("GET")
         else
-          # by_url = 
-          puts "#{line.text.gsub('GET A COPY!', 'from "#{SITE/url_ext"}\n')}"
+          by_url = @site + url_ext
+          puts "#{line.text.gsub('GET A COPY!', 'from #{by_url}\n')}"
         end
       end
       puts "\n\n"
@@ -113,7 +113,12 @@ module Almanac
   
     def parse_feature(feature)
       filter = "Submitted by "
-      feature.css("p").reject{|line| line.text.start_with?(filter)}
+      out_string = ""
+      feature.css("p").each do |line|
+        break if line.text.start_with?(filter)
+        out_string += line.text
+      end
+      out_string
     end
 
     def sections
@@ -123,19 +128,14 @@ module Almanac
 
 
     def display_selected_section_fp_menu(url)
+      Scraper.scrape_section(url)
 
-      # sections.each{|s| puts s.css("title").text}
     end
 
     def again?
       print "Would you like to read another selection? (y or n): "
       y_or_n = gets.strip.upcase
-      if y_or_n == "Y"
-        run
-      else y_or_n == "M" ? menu : choose
-      # y_or_n.upcase == "Y" ? run : close_the_almanac
-      end
-
+      y_or_n == "Y" ? choose : close_the_almanac
     end
 
     def close_the_almanac

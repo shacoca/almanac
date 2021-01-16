@@ -6,6 +6,10 @@ class Scraper
         Nokogiri::HTML(open(main_site))
     end
 
+    def self.scrape_sections(site)
+        site.css("div ul#superfish-1 li a.sf-depth-1")
+    end
+
     def self.scrape_feature(url_ext)
         scrape_piece(url_ext)
     end

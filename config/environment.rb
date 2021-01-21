@@ -7,7 +7,7 @@ Bundler.require
 require_all './lib'
 
 # load other stuff
-# require_all 'lib'
+require_all 'lib'
 require 'net/http'
 require 'uri'
 require 'open-uri'

@@ -14,6 +14,8 @@ TODO: make sense of folder structure for pages such as...
     THISWORK?: to get url ext, wrapper.css("a").attr("href")  => #<Nokogiri::XML::Attr:0x3ffc70cf7018 name="href" value="/gardening">
     wrapper = 
 
+https://www.almanac.com/flowering-houseplants-brighten-winter
+
 ****************************************************************
 ****************************************************************
 
@@ -70,3 +72,13 @@ STYLES =
   bg_cyan: 46, bg_lt_cyan: 106,
   default_bg: 49,
 }
+
+error output:
+        9: from /Users/scc/Development/code/almanac/lib/almanac.rb:80:in `choose'
+        8: from /Users/scc/Development/code/almanac/lib/almanac.rb:95:in `display_feature'
+        7: from /Users/scc/Development/code/almanac/lib/almanac.rb:120:in `parse_feature'
+        6: from /Users/scc/Development/code/almanac/lib/scraper.rb:14:in `scrape_feature'
+        5: from /Users/scc/Development/code/almanac/lib/scraper.rb:22:in `scrape_piece'
+GET A COPY!
+Image: 
+Photo Credit: 

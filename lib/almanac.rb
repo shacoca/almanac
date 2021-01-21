@@ -1,14 +1,14 @@
 require_relative "../config/environment.rb"
 
 module Almanac
-  # Your code goes here...
 
   class Almanac
  
-    attr_accessor :site, :pubdate, :issue
+    attr_accessor :site, :pubdate, :issue, :closed
 
     def initialize(main_site)
       @site = Scraper.scrape_main_site(main_site)
+      @closed = false
       # @pubdate = pubdate:
       # @issue = issue:
     end
@@ -29,7 +29,7 @@ module Almanac
 
       sleep (pause_unit * 4)
 
-      run
+      # run
 
     end
 
@@ -61,49 +61,49 @@ module Almanac
       end
     end
 
-    def section_front_page_menu
-      section = Scraper.scrape_section(section_url)
-      section.each_with_index do |el, i|
-        puts "#{i.to_s + 1}. #{el.css("h2").text}\n" # unless el.text == section[-1].text
-      end
-    end
-
     def choose
-      num_features = @site.css("div.view a h2").count
+      num_features = num_features || @site.css("div.view a h2").count
       print "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section. (0 to exit) "
 
       user_input = gets.strip
       puts "\nYou chose #{user_input}.\n"
-      user_input.to_i == nil ? choice = input : choice = user_input.to_i - 1
+      user_input.to_i == nil ? oops(user_input) : choice = user_input.to_i - 1
 
       if choice >= 0 && choice < num_features
-        display_feature("#{(featured[choice].css("a").last.attr("href"))}")
+        url = featured[choice].css("a").last.attr("href")
+        puts "Now fetching #{url}"
+        display_feature(url)
 
-      elsif choice >= num_features
-        display_selected_section_fp_menu(sections[choice])
-      elsif choice == "0"
+      elsif choice >= num_features && choice <= num_features + 1 + sections.length
+        display_selected_section_fp_menu(sections[choice - num_features])
+      elsif choice < 0
         close_the_almanac
       else
-        puts "#{user_input}??"
-        puts "Sorry, buddy. I don't know what you're talkin about."
-        choose
+        oops(user_input)
       end
     end
 
+    def oops(wrong)
+      puts "#{wrong}??"
+      puts "Sorry, buddy. I don't know what you're talkin about."
+      choose
+    end
+
+    # def section_front_page_menu
+    #   section = Scraper.scrape_section(section_url)
+    #   section.each_with_index do |el, i|
+    #     puts "#{i.to_s + 1}. #{el.css("h2").text}\n" # unless el.text == section[-1].text
+    #   end
+    # end
+
     def display_feature(url_ext)
-      f = get_feature(url_ext)
+      f = get_feature(url_ext) #=> Nokogiri object returned
       feature_container = parse_feature(f)
-      # TODO: get String from parse and fix the following code
+
       puts "\n\n\n\e[7h"
-      feature_container.each do |line|
-        if line.text.start_with?("Photo ")
-          puts "    \e[3;4m#{line.text}\e[0m\n" #how you say italics?
-        # elsif line.text.start_with?("GET")
-        else
-          by_url = @site + url_ext
-          puts "#{line.text.gsub('GET A COPY!', 'from #{by_url}\n')}"
-        end
-      end
+
+      puts feature_container
+      
       puts "\n\n"
     end
 
@@ -112,43 +112,58 @@ module Almanac
     end
   
     def parse_feature(feature)
-      filter = "Submitted by "
-      out_string = ""
-      feature.css("p").each do |line|
-        break if line.text.start_with?(filter)
-        out_string += line.text
+      parsed = feature.css("p").text.split("Submitted by ").first
+      # returns String
+      # strips all text after main article, after first "Submitted by ".
+      # strips "GET A COPY"
+      # indents lines starting with ("Credit", "Photo Credit", "Image")
+      new_lines = ""
+      parsed.each_line do |l|
+        new_lines << l.gsub("GET A COPY!", "\n").gsub("Image: ", "\n    Image: \n").gsub("Photo Credit: ", "\n    Photo Credit: \n").gsub("Credit", "\n   Credit: \n") + ("\n")
+
       end
-      out_string
+      new_lines
     end
 
     def sections
       @site.css("div ul#superfish-1 li a.sf-depth-1")
     end
 
-
-
-    def display_selected_section_fp_menu(url)
-      Scraper.scrape_section(url)
-
+    def display_selected_section_fp_menu(section)
+      fp = Scraper.scrape_section(section.attr("href"))
+      sec_pcs = fp.css("div.view-content div a").reject{|i| i.css("h2").text == ""}
+      sec_pcs.each_with_index{|el, i| puts "#{i + 1}. #{el.css("h2").text}"}
+      print "\nEnter a number: "
+      user_input = gets.strip
+      user_input.to_i ? choice = user_input.to_i - 1 : oops(user_input)
+      choice < sec_pcs.length ? display_feature(fp.css("div.view-content div a")[choice].attr("href"))
+       : oops(user_input)
     end
 
     def again?
       print "Would you like to read another selection? (y or n): "
       y_or_n = gets.strip.upcase
-      y_or_n == "Y" ? choose : close_the_almanac
+      y_or_n == "Y" ? run : close_the_almanac
     end
 
     def close_the_almanac
       puts "\n\n\n            May the sun bless your crops 'til we see you again. Bye now!\n\n\n\n"
+      @closed = true
     end
-    
+
     def run
-      # welcome
       menu
       choose
-      again?
-      # close_the_almanac
-    end  
+      again? if @closed == false
+    end
+    
+    # def run
+    #   # welcome
+    #   menu
+    #   choose  
+    #   again?
+    #   # close_the_almanac
+    # end  
 
   end
 

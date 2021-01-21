@@ -15,7 +15,9 @@ class Scraper
     end
 
     def self.scrape_section(section_url)
-        Nokogiri::HTML(open("#{SITE}/#{section_url}"))
+        # binding.pry
+        Nokogiri::HTML(open(SITE + section_url))
+        # Nokogiri::HTML(open("#{SITE}#{section_url}"))
     end
 
     def self.scrape_piece(url_ext)

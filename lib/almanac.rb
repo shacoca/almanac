@@ -7,9 +7,9 @@ module Almanac
     attr_accessor :site, :pubdate, :issue, :closed
 
     def initialize(main_site)
-      @site = Scraper.scrape_main_site(main_site)
+      @site = Scraper.get_main_site(main_site)
       @closed = false
-      @pubdate = @site.css("h2.pane-title.block-title a")[0].text
+      @pubdate = site.css("h2.pane-title.block-title a")[0].text
       # @issue = issue:
     end
 
@@ -33,6 +33,7 @@ module Almanac
 
     def featured
       Scraper.get_features
+      # returns array of Featured objects
     end
 
     # def make_featured_pieces
@@ -49,7 +50,8 @@ module Almanac
       puts "\n\n\e[1m    Today's Companion\e[22m\n"
 
       featured.each_with_index do |f, i|
-        puts "\n\e[1m#{i+1}. #{f.css("h2").text}\e[22m\n#{f.css("div.news-field-body").text}\n\n" if f.css("h2").text.length > 0
+        puts "\n  \e[1m#{i+1}. #{f.title}\e[22m\n#{f.subhead}\n\n"
+        # puts "\n\e[1m#{i+1}. #{f.css("h2").text}\e[22m\n#{f.css("div.news-field-body").text}\n\n" if f.css("h2").text.length > 0
         sleep (0.3)
       end
 
@@ -57,7 +59,7 @@ module Almanac
 
     def section_menu
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
-      sections = Scraper.scrape_sections(@site)
+      sections = Scraper.get_sections(@site)
       sections.each_with_index do |sec_name, i|
         puts "#{i + featured.count}. #{sec_name.text}\n" unless sec_name.text == sections[-1].text #omit printing last item in collection
       end

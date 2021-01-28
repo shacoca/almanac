@@ -5,12 +5,12 @@ class Featured < Piece
 
     @@all = []
 
-    def initialize(url)
-        @section = 
-        @title = 
-        @subhead = 
-        @pubdate = 
-        @author = 
+    def initialize(feat_hash)
+        @section = feat_hash[:section] # object
+        @title   = feat_hash[:title] # String
+        @subhead = feat_hash[:subhead] # String
+        @pubdate = feat_hash[:pubdate] # String
+        @author  = feat_hash[:author] # String
         save
     end
 

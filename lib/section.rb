@@ -1,13 +1,13 @@
 require_relative "../config/environment.rb"
 
 class Section
-    attr_accessor :title
+    attr_accessor :name
     attr_reader :url
 
     @@all = []
 
-    def initialize(title, url)
-        @title = title
+    def initialize(url)
+        @name = name
         @url = url
         save
     end
@@ -25,7 +25,7 @@ class Section
     end
 
     def self.pieces
-        Pieces.all.select{|p| p.section == self}
+        Piece.all.select{|p| p.section == self}
     end
 
     def add_piece(piece)
@@ -34,12 +34,12 @@ class Section
     end
 
     def self.new_from_piece(piece)
-        Section.new(piece.title)
+        Section.new(piece.name)
         # add_piece(piece)
     end
 
     def new_piece(piece)
-        if pieces.include?(piece)
+        if Section.pieces.include?(piece)
             add_piece
         else
         end

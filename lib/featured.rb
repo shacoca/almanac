@@ -1,12 +1,16 @@
 require_relative "./piece.rb"
 
 class Featured < Piece
-    attr_accessor :section, :title, :subhead
+    attr_accessor :section, :title, :subhead, :pubdate, :author
 
     @@all = []
-    # @@all = []
 
-    def initialize
+    def initialize(url)
+        @section = 
+        @title = 
+        @subhead = 
+        @pubdate = 
+        @author = 
         save
     end
 
@@ -24,3 +28,4 @@ class Featured < Piece
 
 
 end
+

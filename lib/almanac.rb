@@ -9,19 +9,19 @@ module Almanac
     def initialize(main_site)
       @site = Scraper.scrape_main_site(main_site)
       @closed = false
-      # @pubdate = pubdate:
+      @pubdate = @site.css("h2.pane-title.block-title a")[0].text
       # @issue = issue:
     end
 
     def welcome
-      puts "\e[2J"
-      pause_unit = 0.13 * 3
+      puts "\e[2J"        # clear screen
+      pause_unit = 0.4
       puts "\n\n#{@site.css("h1").text}\n"
       foot = @site.css("div#footerinfo").text.partition("P.")
-      puts "#{foot.first}\n#{foot[1]}#{foot.last}\n\n"
+      puts "#{foot.first}\n#{foot[1]}#{foot.last}\n\n"        # masthead info
       sleep (pause_unit * 4)
 
-      puts "Today is #{@site.css("h2.pane-title.block-title a")[0].text}"
+      puts "Today is #{@pubdate}"        # greeting
       sleep (pause_unit * 2)
       puts @site.css("p#calendar_dayofyear").text
       sleep (pause_unit * 2)
@@ -29,13 +29,15 @@ module Almanac
 
       sleep (pause_unit * 4)
 
-      # run
-
     end
 
     def featured
-      @site.css("div.view").each {|i| i.css("a h2").text}
+      Scraper.get_features
     end
+
+    # def make_featured_pieces
+    #   featured.each{|f| #make features here}
+    # end
 
     def menu
       main_menu
@@ -57,12 +59,12 @@ module Almanac
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
       sections = Scraper.scrape_sections(@site)
       sections.each_with_index do |sec_name, i|
-        puts "#{i + featured.count}. #{sec_name.text}\n" unless sec_name.text == sections[-1].text
+        puts "#{i + featured.count}. #{sec_name.text}\n" unless sec_name.text == sections[-1].text #omit printing last item in collection
       end
     end
 
     def choose
-      num_features = num_features || @site.css("div.view a h2").count
+      num_features = num_features || @site.css("div.view h2").count
       print "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section. (0 to exit) "
 
       user_input = gets.strip
@@ -70,9 +72,9 @@ module Almanac
       user_input.to_i == nil ? oops(user_input) : choice = user_input.to_i - 1
 
       if choice >= 0 && choice < num_features
-        url = featured[choice].css("a").last.attr("href")
-        puts "Now fetching #{url}"
-        display_feature(url)
+        # url = featured[choice].css("a").last.attr("href")
+        # puts "Please wait while we fetch #{url}......\n\n"
+        display_feature(featured[choice].css("a").last.attr("href"))
 
       elsif choice >= num_features && choice <= num_features + 1 + sections.length
         display_selected_section_fp_menu(sections[choice - num_features])
@@ -84,17 +86,10 @@ module Almanac
     end
 
     def oops(wrong)
-      puts "#{wrong}??"
-      puts "Sorry, buddy. I don't know what you're talkin about."
+      puts "\n#{wrong}?!?"
+      puts "Sorry, farmer. I don't know what you're talkin' about.\n\n"
       choose
     end
-
-    # def section_front_page_menu
-    #   section = Scraper.scrape_section(section_url)
-    #   section.each_with_index do |el, i|
-    #     puts "#{i.to_s + 1}. #{el.css("h2").text}\n" # unless el.text == section[-1].text
-    #   end
-    # end
 
     def display_feature(url_ext)
       f = get_feature(url_ext) #=> Nokogiri object returned
@@ -102,7 +97,7 @@ module Almanac
 
       puts "\n\n\n\e[7h"
 
-      puts feature_container
+      puts feature_container.split(/[?.!]/).each {|l| puts l}
       
       puts "\n\n"
     end
@@ -113,10 +108,6 @@ module Almanac
   
     def parse_feature(feature)
       parsed = feature.css("p").text.split("Submitted by ").first
-      # returns String
-      # strips all text after main article, after first "Submitted by ".
-      # strips "GET A COPY"
-      # indents lines starting with ("Credit", "Photo Credit", "Image")
       new_lines = ""
       parsed.each_line do |l|
         new_lines << l.gsub("GET A COPY!", "\n").gsub("Image: ", "\n    Image: \n").gsub("Photo Credit: ", "\n    Photo Credit: \n").gsub("Credit", "\n   Credit: \n") + ("\n")

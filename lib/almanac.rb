@@ -4,12 +4,13 @@ module Almanac
 
   class Almanac
  
-    attr_accessor :site, :pubdate, :issue, :closed
+    attr_accessor :site, :features, :pubdate, :closed
 
-    def initialize(main_site)
-      @site = Scraper.get_main_site(main_site)
+    def initialize(url)
+      @site = Scraper.scrape_main_site(url)
+      @features = Piece.get_features #array of Piece obs
       @closed = false
-      @pubdate = site.css("h2.pane-title.block-title a")[0].text
+      @pubdate = site.css(".block-title a")[0].text
       # @issue = issue:
     end
 
@@ -19,7 +20,7 @@ module Almanac
       puts "\n\n#{@site.css("h1").text}\n"
       foot = @site.css("div#footerinfo").text.partition("P.")
       puts "#{foot.first}\n#{foot[1]}#{foot.last}\n\n"        # masthead info
-      sleep (pause_unit * 4)
+      sleep (pause_unit * 3)
 
       puts "Today is #{@pubdate}"        # greeting
       sleep (pause_unit * 2)
@@ -27,18 +28,9 @@ module Almanac
       sleep (pause_unit * 2)
       puts @site.css("p#calendar_next_season").text
 
-      sleep (pause_unit * 4)
+      sleep (pause_unit * 3)
 
     end
-
-    def featured
-      Scraper.get_features
-      # returns array of Featured objects
-    end
-
-    # def make_featured_pieces
-    #   featured.each{|f| #make features here}
-    # end
 
     def menu
       main_menu
@@ -49,9 +41,8 @@ module Almanac
 
       puts "\n\n\e[1m    Today's Companion\e[22m\n"
 
-      featured.each_with_index do |f, i|
+      @features.each_with_index do |f, i|
         puts "\n  \e[1m#{i+1}. #{f.title}\e[22m\n#{f.subhead}\n\n"
-        # puts "\n\e[1m#{i+1}. #{f.css("h2").text}\e[22m\n#{f.css("div.news-field-body").text}\n\n" if f.css("h2").text.length > 0
         sleep (0.3)
       end
 
@@ -59,27 +50,26 @@ module Almanac
 
     def section_menu
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
-      sections = Scraper.get_sections(@site)
+      sections = Scraper.get_section_names
       sections.each_with_index do |sec_name, i|
-        puts "#{i + featured.count}. #{sec_name.text}\n" unless sec_name.text == sections[-1].text #omit printing last item in collection
+        puts "#{i + 1 + features.count}. #{sec_name}\n"
       end
     end
 
     def choose
-      num_features = num_features || @site.css("div.view h2").count
       print "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section. (0 to exit) "
 
       user_input = gets.strip
       puts "\nYou chose #{user_input}.\n"
       user_input.to_i == nil ? oops(user_input) : choice = user_input.to_i - 1
 
-      if choice >= 0 && choice < num_features
+      if choice >= 0 && choice < @features.count
         # url = featured[choice].css("a").last.attr("href")
         # puts "Please wait while we fetch #{url}......\n\n"
-        display_feature(featured[choice].css("a").last.attr("href"))
+        display_piece(@features[choice])
 
-      elsif choice >= num_features && choice <= num_features + 1 + sections.length
-        display_selected_section_fp_menu(sections[choice - num_features])
+      elsif choice >= features.count && choice <= features.count + 1 + sections.count
+        display_selected_section_fp_menu(sections[choice - sections.count].attr("href"))
       elsif choice < 0
         close_the_almanac
       else
@@ -93,21 +83,10 @@ module Almanac
       choose
     end
 
-    def display_feature(url_ext)
-      f = get_feature(url_ext) #=> Nokogiri object returned
-      feature_container = parse_feature(f)
-
-      puts "\n\n\n\e[7h"
-
-      puts feature_container.split(/[?.!]/).each {|l| puts l}
-      
-      puts "\n\n"
+    def display_piece(feature)
+      puts feature.text
     end
 
-    def get_feature(url_ext)
-      Scraper.scrape_feature(url_ext) #=> returns feature
-    end
-  
     def parse_feature(feature)
       parsed = feature.css("p").text.split("Submitted by ").first
       new_lines = ""
@@ -122,14 +101,14 @@ module Almanac
       @site.css("div ul#superfish-1 li a.sf-depth-1")
     end
 
-    def display_selected_section_fp_menu(section)
-      fp = Scraper.scrape_section(section.attr("href"))
+    def display_selected_section_fp_menu(section_url)
+      fp = Scraper.get_section_front(section_url)
       sec_pcs = fp.css("div.view-content div a").reject{|i| i.css("h2").text == ""}
       sec_pcs.each_with_index{|el, i| puts "#{i + 1}. #{el.css("h2").text}"}
       print "\nEnter a number: "
       user_input = gets.strip
       user_input.to_i ? choice = user_input.to_i - 1 : oops(user_input)
-      choice < sec_pcs.length ? display_feature(fp.css("div.view-content div a")[choice].attr("href"))
+      choice < sec_pcs.length ? display_piece(fp.css("div.view-content div a")[choice])
        : oops(user_input)
     end
 

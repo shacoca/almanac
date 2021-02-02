@@ -46,6 +46,9 @@ class Section
 
     end
 
+    def find_or_create_from_url
+    end
+
     def self.count
         @@all.count
     end

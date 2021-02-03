@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 
 class Piece
-    attr_accessor :title, :pubdate, :author, :url, :text, :subhead, :section
+    attr_accessor :title, :pubdate, :author, :url, :text, :subhead # :section
 
     @@all = []
 
@@ -13,7 +13,7 @@ class Piece
     def self.get_features
         # returns array of Piece obs
         features = []
-        Scraper.scrape_features.each{|piece_data| features << Piece.new(piece_data)}
+        Scraper.scrape_features.each{|piece_data| features << piece_data}
         features
     end
 

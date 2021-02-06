@@ -16,11 +16,11 @@ module Almanac
 
     def welcome
       puts "\e[2J"        # clear screen
-      pause_unit = 0.4
+      pause_unit = 0.18
       puts "\n\n#{@site.css("h1").text}\n"
       foot = @site.css("div#footerinfo").text.partition("P.")
       puts "#{foot.first}\n#{foot[1]}#{foot.last}\n\n"        # masthead info
-      sleep (pause_unit * 3)
+      sleep (pause_unit * 4)
 
       puts "Today is #{@pubdate}"        # greeting
       sleep (pause_unit * 2)
@@ -42,8 +42,12 @@ module Almanac
       puts "\n\n\e[1m    Today's Companion\e[22m\n"
 
       @features.each_with_index do |f, i|
-        puts "\n  \e[1m#{i+1}. #{f.title}\e[22m\n#{f.subhead}\n\n"
-        sleep (0.3)
+        if f.subhead != ""          
+          puts "\n  \e[1m#{i+1}. #{f.title}\e[22m\n#{f.subhead}\n\n"
+        else
+          puts "\n  \e[1m#{i+1}. #{f.title}\e[22m\n\n"
+        end
+        sleep (0.17)
       end
 
     end
@@ -61,12 +65,16 @@ module Almanac
 
       user_input = gets.strip
       puts "\nYou chose #{user_input}.\n"
-      user_input.to_i == nil ? oops(user_input) : choice = user_input.to_i - 1
+      if user_input.to_i == nil
+        oops(user_input)
+      else
+        choice = user_input.to_i - 1
+      end
 
       if choice >= 0 && choice < @features.count
         # url = featured[choice].css("a").last.attr("href")
         # puts "Please wait while we fetch #{url}......\n\n"
-        display_piece(@features[choice])
+        @features[choice].print_text
 
       elsif choice >= features.count && choice <= features.count + 1 + sections.count
         display_selected_section_fp_menu(sections[choice - sections.count].attr("href"))
@@ -83,8 +91,8 @@ module Almanac
       choose
     end
 
-    def display_piece(feature)
-      puts feature.text
+    def display_piece(piece)
+      piece.print_text
     end
 
     def parse_feature(feature)
@@ -102,13 +110,14 @@ module Almanac
     end
 
     def display_selected_section_fp_menu(section_url)
-      fp = Scraper.get_section_front(section_url)
-      sec_pcs = fp.css("div.view-content div a").reject{|i| i.css("h2").text == ""}
-      sec_pcs.each_with_index{|el, i| puts "#{i + 1}. #{el.css("h2").text}"}
+      sec_pcs = Piece.get_section_pieces(section_url)
+      # binding.pry
+      # sec_pcs = fp.css("div.view-content div a").reject{|i| i.css("h2").text == ""}
+      sec_pcs.each_with_index{|el, i| puts "#{i + 1}. #{el.title}"}
       print "\nEnter a number: "
       user_input = gets.strip
       user_input.to_i ? choice = user_input.to_i - 1 : oops(user_input)
-      choice < sec_pcs.length ? display_piece(fp.css("div.view-content div a")[choice])
+      choice < sec_pcs.length ? display_piece(sec_pcs[choice])
        : oops(user_input)
     end
 

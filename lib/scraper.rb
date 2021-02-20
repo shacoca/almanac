@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 
 class Scraper
-    attr_accessor :main_site, :piece_page
+    attr_accessor :main_site, :piece_page, :title, :pubdate, :author, :url, :body_text, :subhead
 
     def self.scrape_main_site(url)
         @main_site = Nokogiri::HTML(open(url))
@@ -10,45 +10,70 @@ class Scraper
     def self.scrape_features
         features = []
         @main_site.css("div .view-display-id-block_8").each {|f| features << scrape_piece(f.css("div.news-wrapper a")[1].attr("href"))}
+        # binding.pry
         features
     end
 
-    def self.scrape_piece(ext)
-        # return Piece
-        recipe = true if ext.include? "/recipe"
-        piece_data = Nokogiri::HTML(open(SITE + ext))
-        title = piece_data.css("h1").text ? piece_data.css("h1").text.strip : nope
-        # author = piece_data.css("h2 ~ div.panel-pane div.block-content")[0].text.strip.gsub("By ", "")
-        subhead = piece_data.css(".subhead").text.strip # div.field-item [property='schema:description']
-        if piece_data.css("span[property='schema:dateModified']").attr('content')
-            pubdate = piece_data.css("span[property='schema:dateModified']").attr('content').value
+    def self.scrape_piece(ext) # returns Piece
+        # binding.pry
+        piece_data = Nokogiri::HTML(open(SITE + ext)) # now determine article or recipe
+        if ext.include?("/recipe/") || ext.include?("-recipe-")
+            scrape_recipe(piece_data)
         else
-            pubdate = "02-04-2020"
-        end
-        author = piece_data.css('.pane-display-author').text.gsub("By ", "").strip
-        if piece_data.css("span[property='schema:mainEntityOfPage']").attr('content')
-            url = piece_data.css("span[property='schema:mainEntityOfPage']").attr('content').value
-        else
-            url = "http://www.almanac.com"
+            scrape_article(piece_data)
         end
 
-        recipe ? text = "YOW...A RECIPE!" : text = piece_data.css(".field-item[property='schema:articleBody']")[0]
-        # if recipe
-        #     text = "YOW...A RECIPE!" # div#article-feature > .region-inner
-        # else
-        #     text = piece_data.css(".field-item[property='schema:articleBody']")[0]
-        # end
-        # section = piece_data.css("")
-        piece_hash = {
-            title: title,
-            pubdate: pubdate,
-            author: author,
-            url: url,
-            text: text,
-            subhead: subhead
-            # section: section
+        Piece.new({title: @title, pubdate: @pubdate, author: @author, url: @url, body_text: @body_text, subhead: @subhead})
+    end
+
+    def self.scrape_article(piece_data)
+        # need to know:
+        # h1?
+        # h2 div.field-items .[property="schema:alternativeHeadline"]?
+
+        @title = piece_data.css("h1").text.strip
+        @subhead = piece_data.css("div[property='schema:alternativeHeadline']").text.strip
+        if piece_data.css("span[property='schema:dateModified']").attr('content')
+            @pubdate = date_parse(piece_data.css("span[property='schema:dateModified']").attr('content').value)
+        else
+            # @pubdate = piece_data.css("span[property='schema:dateModified']").attr('content').value
+        end
+        @author = piece_data.css('.pane-display-author').text.gsub("By ", "").strip
+        if piece_data.css("span[property='schema:mainEntityOfPage']").attr('content')
+            @url = piece_data.css("span[property='schema:mainEntityOfPage']").attr('content').value
+        else
+            @url = "https://www.almanac.com"
+        end
+        @body_text = piece_data.css("div[property='schema:articleBody'], div#article-feature") # before 
+    end
+
+    def self.scrape_recipe(piece_data)
+        @title = piece_data.css("h1").text.strip
+        @pubdate = date_parse(piece_data.css("meta[property='og:updated_time']").attr("content").value)
+        @author = piece_data.css("li.field-item a")[-1].text
+        @url = piece_data.css("meta[property='og:url']").attr("content").text
+        @body_text = piece_data.css("section#main-content")
+        @subhead = piece_data.css("div[property='schema:description'] p")[0].text.strip
+        # binding.pry
+    end
+
+    def self.date_parse(raw_date)
+        months = {
+            "01"=>"January",
+            "02"=>"February",
+            "03"=>"March",
+            "04"=>"April",
+            "05"=>"May",
+            "06"=>"June",
+            "07"=>"July",
+            "08"=>"August",
+            "09"=>"September",
+            "10"=>"October",
+            "11"=>"November",
+            "12"=>"December"
         }
-        Piece.new(piece_hash)        
+
+        "#{months[raw_date.slice(5,2)]} #{raw_date.slice(8,2)}, #{raw_date.slice(0,4)}"
     end
 
     def self.get_section_names
@@ -61,6 +86,7 @@ class Scraper
     end
 
     def self.get_section_front(section)
+        binding.pry
         Nokogiri::HTML(open(SITE + section))
     end
 

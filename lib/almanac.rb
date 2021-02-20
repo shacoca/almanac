@@ -4,13 +4,14 @@ module Almanac
 
   class Almanac
  
-    attr_accessor :site, :features, :pubdate, :closed
+    attr_accessor :site, :features, :issue_date, :closed, :first_run
 
     def initialize(url)
       @site = Scraper.scrape_main_site(url)
       @features = Piece.get_features #array of Piece obs
       @closed = false
-      @pubdate = site.css(".block-title a")[0].text
+      @first_run = true
+      @issue_date = site.css(".block-title a")[0].text
       # @issue = issue:
     end
 
@@ -22,7 +23,7 @@ module Almanac
       puts "#{foot.first}\n#{foot[1]}#{foot.last}\n\n"        # masthead info
       sleep (pause_unit * 4)
 
-      puts "Today is #{@pubdate}"        # greeting
+      puts "Today is #{@issue_date}"        # greeting
       sleep (pause_unit * 2)
       puts @site.css("p#calendar_dayofyear").text
       sleep (pause_unit * 2)
@@ -47,15 +48,15 @@ module Almanac
         else
           puts "\n  \e[1m#{i+1}. #{f.title}\e[22m\n\n"
         end
-        sleep (0.17)
+        sleep (0.3) if @first_run
       end
 
     end
 
     def section_menu
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
-      sections = Scraper.get_section_names
-      sections.each_with_index do |sec_name, i|
+      sec_names = Scraper.get_section_names
+      sec_names.each_with_index do |sec_name, i|
         puts "#{i + 1 + features.count}. #{sec_name}\n"
       end
     end
@@ -64,7 +65,7 @@ module Almanac
       print "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section. (0 to exit) "
 
       user_input = gets.strip
-      puts "\nYou chose #{user_input}.\n"
+      print "\nYou chose #{user_input}. "
       if user_input.to_i == nil
         oops(user_input)
       else
@@ -72,11 +73,12 @@ module Almanac
       end
 
       if choice >= 0 && choice < @features.count
-        # url = featured[choice].css("a").last.attr("href")
-        # puts "Please wait while we fetch #{url}......\n\n"
         @features[choice].print_text
 
       elsif choice >= features.count && choice <= features.count + 1 + sections.count
+        # puts "\n"
+        puts ["Grabbing that section for ya..... ", "Hold on, I'll get that.....", "Just a moment while grab that.....", "OK. Just a sec....."].sample
+        puts "\n"
         display_selected_section_fp_menu(sections[choice - sections.count].attr("href"))
       elsif choice < 0
         close_the_almanac
@@ -122,6 +124,7 @@ module Almanac
     end
 
     def again?
+      @first_run = false
       print "Would you like to read another selection? (y or n): "
       y_or_n = gets.strip.upcase
       y_or_n == "Y" ? run : close_the_almanac
@@ -138,14 +141,6 @@ module Almanac
       again? if @closed == false
     end
     
-    # def run
-    #   # welcome
-    #   menu
-    #   choose  
-    #   again?
-    #   # close_the_almanac
-    # end  
-
   end
 
 end

@@ -23,20 +23,15 @@ class Scraper
             scrape_article(piece_data)
         end
 
-        Piece.new({title: @title, pubdate: @pubdate, author: @author, url: @url, body_text: @body_text, subhead: @subhead})
+        Piece.find_or_create_piece({title: @title, pubdate: @pubdate, author: @author, url: @url, body_text: @body_text, subhead: @subhead})
     end
 
     def self.scrape_article(piece_data)
-        # need to know:
-        # h1?
-        # h2 div.field-items .[property="schema:alternativeHeadline"]?
 
         @title = piece_data.css("h1").text.strip
         @subhead = piece_data.css("div[property='schema:alternativeHeadline']").text.strip
         if piece_data.css("span[property='schema:dateModified']").attr('content')
             @pubdate = date_parse(piece_data.css("span[property='schema:dateModified']").attr('content').value)
-        else
-            # @pubdate = piece_data.css("span[property='schema:dateModified']").attr('content').value
         end
         @author = piece_data.css('.pane-display-author').text.gsub("By ", "").strip
         if piece_data.css("span[property='schema:mainEntityOfPage']").attr('content')
@@ -44,7 +39,7 @@ class Scraper
         else
             @url = "https://www.almanac.com"
         end
-        @body_text = piece_data.css("div[property='schema:articleBody'], div#article-feature") # before 
+        @body_text = piece_data.css("div[property='schema:articleBody'], div#article-feature")
     end
 
     def self.scrape_recipe(piece_data)
@@ -54,7 +49,6 @@ class Scraper
         @url = piece_data.css("meta[property='og:url']").attr("content").text
         @body_text = piece_data.css("section#main-content")
         @subhead = piece_data.css("div[property='schema:description'] p")[0].text.strip
-        # binding.pry
     end
 
     def self.date_parse(raw_date)
@@ -86,7 +80,6 @@ class Scraper
     end
 
     def self.get_section_front(section)
-        binding.pry
         Nokogiri::HTML(open(SITE + section))
     end
 
@@ -96,16 +89,5 @@ class Scraper
         page.css("#block-system-main .block-content .view-content a").each{|u| pieces << scrape_piece(u.attr("href"))}
         pieces
     end
-
-    # def self.scrape_section_pieces(sec_url)
-    #     page = get_section_front(sec_url)
-    #     pieces = page.css("#block-system-main .block-content .view-content")
-    #     title = page.css("h2").text.strip
-    #     subhead = page.css("h3").text.strip
-    #     url = page.css("a").attr("href").value
-    #     pubdate = "today"
-    #     author = "editors"
-    #     # text = 
-    # end
 
 end

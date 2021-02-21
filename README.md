@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Enter '.bin/almanac' and let the prompts guide you
 
 ## Development
 

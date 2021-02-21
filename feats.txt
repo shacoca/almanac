@@ -1,3 +1,5 @@
+1
+Growing Carrots
 <div class="two-66-33 at-panel panel-display clearfix print-only" id="article-feature">
       <div class="region region-two-66-33-top region-conditional-stack">
       <div class="region-inner clearfix">
@@ -46,7 +48,7 @@
             
     
     <div class="block-content">
-      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-default view-dom-id-718ca74a075c25c1906b5ea893c8204f">
+      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-default view-dom-id-ab77f63e019a1c248a28921a578c1372">
         
   
   
@@ -150,7 +152,7 @@ if(window.da2a)da2a.script_load();
 <input type="submit" id="edit-submit" name="op" value="Change" class="form-submit">
 </div>
 </fieldset>
-<input type="hidden" name="form_build_id" value="form-Kr0mcJKEru3j_A8djo50BGm0uaFi1fwF153cTCaDp5k">
+<input type="hidden" name="form_build_id" value="form-QmFil6jn8XuMBTwWby0a_DZEmFSakxbaYqR8UrI97J4">
 <input type="hidden" name="form_id" value="mylocation_locationform">
 </div></form>
 <div id="seedstart_one_plant_block"></div>
@@ -332,15 +334,15 @@ if(window.da2a)da2a.script_load();
       <div id="more_like_this_wrapper">
 <div id="more_like_this_single" class="more_like_this_1"><a href="/plant/tomatoes" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=nla1FajW" alt="Tomatoes on Vine"><h3>Tomatoes</h3></a></div>
 <div id="more_like_this_single" class="more_like_this_2"><a href="/plant/parsnips" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/images/parsnip.jpg?itok=siztUKEy" alt="Parsnips"><h3>Parsnips</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_3"><a href="/plant/turnips" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/planting-growing-turnips.jpg?itok=yE9Wfm62" alt="planting-growing-turnips"><h3>Turnips</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_4"><a href="/plant/sweet-potatoes" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/sweet-potatoes_ssbonnietaylorbarry.jpg?itok=4WM2ffQ_" alt="Sweet Potatoes"><h3>Sweet Potatoes</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_5"><a href="/plant/horseradish" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/horseradish-root-by-kuttelvaserova-stuchelova-shutterstock_crop.jpg?itok=PKW1SnU6" alt="Horseradish"><h3>Horseradish</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_6"><a href="/how-grow-your-own-salad-greens" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/salad-greens.jpg?itok=1odxAs7W" alt="Salad Greens"><h3>How to Grow Your Own Salad Greens</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_7"><a href="/plant/winter-squash" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/squash-butternut-vines_dleonis-getty.jpg?itok=0OTFmqIa" alt="Butternut Squash on Vine"><h3>Winter Squash</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_8"><a href="/plant/onions" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/onions.jpg?itok=iR7iPrp8" alt="Onions"><h3>Onions</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_9"><a href="/plant/brussels-sprouts" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/brussels-sprouts.jpg?itok=_F5jisen" alt="Brussels Sprouts (Unharvested)"><h3>Brussels Sprouts</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_10"><a href="/plant/radishes" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/images/photo_2772.jpg?itok=FqhGFye_" alt="Radishes"><h3>Radishes</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_11"><a href="/plant/peas" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/peas-and-pea-pods.jpg?itok=OSwn7QKE" alt="Peas and Pea Pods"><h3>Peas</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_3"><a href="/plant/turnips" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/turnips_shutterstock_733782379.jpg?itok=PzBMQDYt" alt="planting-growing-turnips"><h3>Turnips</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_4"><a href="/plant/horseradish" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/horseradish-root-by-kuttelvaserova-stuchelova-shutterstock_crop.jpg?itok=PKW1SnU6" alt="Horseradish"><h3>Horseradish</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_5"><a href="/how-grow-your-own-salad-greens" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/salad-greens.jpg?itok=1odxAs7W" alt="Salad Greens"><h3>How to Grow Your Own Salad Greens</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_6"><a href="/plant/winter-squash" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/squash-butternut-vines_dleonis-getty.jpg?itok=0OTFmqIa" alt="Butternut Squash on Vine"><h3>Winter Squash</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_7"><a href="/plant/onions" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/onions.jpg?itok=iR7iPrp8" alt="Onions"><h3>Onions</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_8"><a href="/plant/brussels-sprouts" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/brussels-sprouts.jpg?itok=_F5jisen" alt="Brussels Sprouts (Unharvested)"><h3>Brussels Sprouts</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_9"><a href="/plant/radishes" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/images/photo_2772.jpg?itok=FqhGFye_" alt="Radishes"><h3>Radishes</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_10"><a href="/plant/peas" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/peas-and-pea-pods.jpg?itok=OSwn7QKE" alt="Peas and Pea Pods"><h3>Peas</h3></a></div>
+<div id="more_like_this_single" class="more_like_this_11"><a href="/plant/potatoes" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/red-potatoes_full_width.jpg?itok=uSyUa6DY" alt="Red Potatoes"><h3>Potatoes</h3></a></div>
 <div id="more_like_this_single" class="more_like_this_12"><a href="/content/10-easy-vegetables-grow-seed" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/ten_easiest_vegetables-basket-thinkstock.jpg?itok=Jq7s2-PS" alt="Basket-Thinkstock"><h3>10 Easiest Vegetables to Grow at...</h3></a></div>
 </div>    </div>
 
@@ -383,7 +385,7 @@ if(window.da2a)da2a.script_load();
 <div class="filter-wrapper element-invisible form-wrapper" id="edit-comment-body-und-0-format"></div>
 </div>
 </div></div>
-<input type="hidden" name="form_build_id" value="form-GWOElo1fUpSDbuWFdF72kBWT00SuR0IKhlpQwQU_EQU">
+<input type="hidden" name="form_build_id" value="form-Dx5E_wpd4_OYRTnkJwm8sRb1g84cB9KqWtvlyM-njoc">
 <input type="hidden" name="form_id" value="comment_node_plant_form">
 <div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit--2" name="op" value="Save" class="form-submit"></div>
 </div></form>      </div>
@@ -997,14 +999,14 @@ Is there some physical indicator (like the dried greens of potatoes) that carrot
 <h2 class="element-invisible">Pages</h2>
 <div class="item-list item-list-pager"><ul class="pager">
 <li class="pager-current even first">1</li>
-<li class="pager-item odd"><a title="Go to page 2" href="/plant/carrots?page=1&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">2</a></li>
-<li class="pager-item even"><a title="Go to page 3" href="/plant/carrots?page=2&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">3</a></li>
-<li class="pager-item odd"><a title="Go to page 4" href="/plant/carrots?page=3&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">4</a></li>
-<li class="pager-item even"><a title="Go to page 5" href="/plant/carrots?page=4&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">5</a></li>
-<li class="pager-item odd"><a title="Go to page 6" href="/plant/carrots?page=5&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">6</a></li>
-<li class="pager-item even"><a title="Go to page 7" href="/plant/carrots?page=6&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">7</a></li>
-<li class="pager-next odd"><a title="Go to next page" href="/plant/carrots?page=1&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">next ›</a></li>
-<li class="pager-last even last"><a title="Go to last page" href="/plant/carrots?page=6&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=6LSG1SLMS0UDLTUQB43OOB9GN0&amp;trk_sid=3IBI1CMCHB94RSNDN9JLB6R8US&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">last »</a></li>
+<li class="pager-item odd"><a title="Go to page 2" href="/plant/carrots?page=1&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">2</a></li>
+<li class="pager-item even"><a title="Go to page 3" href="/plant/carrots?page=2&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">3</a></li>
+<li class="pager-item odd"><a title="Go to page 4" href="/plant/carrots?page=3&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">4</a></li>
+<li class="pager-item even"><a title="Go to page 5" href="/plant/carrots?page=4&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">5</a></li>
+<li class="pager-item odd"><a title="Go to page 6" href="/plant/carrots?page=5&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">6</a></li>
+<li class="pager-item even"><a title="Go to page 7" href="/plant/carrots?page=6&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">7</a></li>
+<li class="pager-next odd"><a title="Go to next page" href="/plant/carrots?page=1&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">next ›</a></li>
+<li class="pager-last even last"><a title="Go to last page" href="/plant/carrots?page=6&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=EITV56G4DVC36V040B7U7BMK1C&amp;trk_sid=NT4LEPF92951UBQE0OOJ16GCL4&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Carrots%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">last »</a></li>
 </ul></div>  </div>
     </div>
 
@@ -1023,7 +1025,7 @@ Is there some physical indicator (like the dried greens of potatoes) that carrot
         
     
     <div class="block-content">
-      <div class="view view-plant-details-table view-id-plant_details_table view-display-id-default view-dom-id-5caa29039ad9af9b8c18e127ea69ae4a">
+      <div class="view view-plant-details-table view-id-plant_details_table view-display-id-default view-dom-id-cedb0dd6129497d2b8c5b9e3cbba3f90">
         
   
   
@@ -1151,7 +1153,7 @@ Is there some physical indicator (like the dried greens of potatoes) that carrot
 </div>
 <input type="submit" id="edit-submit--3" name="op" value="GET MY FREE GUIDE" class="form-submit">
 </div></fieldset>
-<input type="hidden" name="form_build_id" value="form-tFpOz0WGcZLsR7VzySEYGCPoypE28qchSlzYQCPXXfk">
+<input type="hidden" name="form_build_id" value="form-8seHXClEebl9eMIihXbvWNQawgl0d0DvtG95iqxvY60">
 <input type="hidden" name="form_id" value="listrak_api_subscribe_simplified_form">
 </div></form>
 <div class="custom-listrak-subscribe-under-form">
@@ -1256,8 +1258,7 @@ Is there some physical indicator (like the dried greens of potatoes) that carrot
   </div>
   </div>
 
-  </div>
-<div class="field-item even" property="schema:articleBody">
+  </div><div class="field-item even" property="schema:articleBody">
 <div id="first-para-wrapper">
 <p>Garden-grown carrots are full of flavor and texture! They are a popular, long-lasting root vegetable that can be grown in many climates. Learn all about planting, growing, and harvesting carrots.</p>
 </div>
@@ -1283,6 +1284,8 @@ Is there some physical indicator (like the dried greens of potatoes) that carrot
 </div>
 
 
+2
+The 2021 Garden Planner: Easier, Faster, Better
 <div class="two-66-33 at-panel panel-display clearfix print-only" id="article-feature">
       <div class="region region-two-66-33-top region-conditional-stack">
       <div class="region-inner clearfix">
@@ -1342,7 +1345,7 @@ Is there some physical indicator (like the dried greens of potatoes) that carrot
             
     
     <div class="block-content">
-      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-block_1 view-dom-id-83ab6d83d45bf582e3dc0b6c83b6cc8b">
+      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-block_1 view-dom-id-4cfbb3cd07c306d6704e8e512872c7ed">
         
   
   
@@ -1504,7 +1507,7 @@ The Plant List shows your plants’ spacing requirements and recommended plantin
         
     
     <div class="block-content">
-      <div class="view view-blog-info view-id-blog_info view-display-id-block_1 view-dom-id-a4b3cc41cac7972a5c3d6e731f1e5cd2">
+      <div class="view view-blog-info view-id-blog_info view-display-id-block_1 view-dom-id-640c67a2820e01f9e5e8defba845a0a5">
         
   
   
@@ -1607,7 +1610,7 @@ The Plant List shows your plants’ spacing requirements and recommended plantin
             
     
     <div class="block-content">
-      <div class="view view-Promotion view-id-Promotion view-display-id-panel_pane_1 view-dom-id-0213a43e2c8260fcad6b123d833760e4">
+      <div class="view view-Promotion view-id-Promotion view-display-id-panel_pane_1 view-dom-id-3609cbd370b4019b627625c08a5d19b7">
         
   
   
@@ -1690,7 +1693,7 @@ The Plant List shows your plants’ spacing requirements and recommended plantin
 <div class="filter-wrapper element-invisible form-wrapper" id="edit-comment-body-und-0-format"></div>
 </div>
 </div></div>
-<input type="hidden" name="form_build_id" value="form-Yxv2Sh1QZvJQ3gEiNJwY73qigAMTSLu-p08dhCVUN2U">
+<input type="hidden" name="form_build_id" value="form-CsXfzXuMCOfG4-AF8bL1dKUyUV3fMwdDMB-pnH1vQOc">
 <input type="hidden" name="form_id" value="comment_node_blog_form">
 <div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Save" class="form-submit"></div>
 </div></form>      </div>
@@ -1825,7 +1828,7 @@ The Plant List shows your plants’ spacing requirements and recommended plantin
 </div>
 <input type="submit" id="edit-submit--2" name="op" value="GET MY FREE GUIDE" class="form-submit">
 </div></fieldset>
-<input type="hidden" name="form_build_id" value="form-EC9ZNU0kSHWUn3ff41PJwHxES1LL_O5-5v4y-Kpyqds">
+<input type="hidden" name="form_build_id" value="form-ArlgZrQLN0QibOUOAmOnf9pB7ptd2e9Ntioqgkpc9c8">
 <input type="hidden" name="form_id" value="listrak_api_subscribe_simplified_form">
 </div></form>
 <div class="custom-listrak-subscribe-under-form">
@@ -1930,8 +1933,7 @@ The Plant List shows your plants’ spacing requirements and recommended plantin
   </div>
   </div>
 
-  </div>
-<div class="field-item even" property="schema:articleBody">
+  </div><div class="field-item even" property="schema:articleBody">
 <div id="first-para-wrapper">
 <p>Our 2021 Online Garden Planner is easier, faster, and better—thanks to your input over the past two years! It has so many amazing features, figuring out how much space plants require, how to group vegetables, exactly when to sow seeds for your location—plus, get a printable planting schedule. This is powerful stuff!</p>
 </div>
@@ -2030,6 +2032,8 @@ The Plant List shows your plants’ spacing requirements and recommended plantin
 </div>
 
 
+3
+Unusual Fruit and Fruit Trees to Grow
 <div class="two-66-33 at-panel panel-display clearfix print-only" id="article-feature">
       <div class="region region-two-66-33-top region-conditional-stack">
       <div class="region-inner clearfix">
@@ -2089,7 +2093,7 @@ The Plant List shows your plants’ spacing requirements and recommended plantin
             
     
     <div class="block-content">
-      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-block_1 view-dom-id-23033ff079f1379e82c45881dd3e7133">
+      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-block_1 view-dom-id-0134c007d113a3e594272dfea5b2cc4f">
         
   
   
@@ -2254,7 +2258,7 @@ if(window.da2a)da2a.script_load();
         
     
     <div class="block-content">
-      <div class="view view-blog-info view-id-blog_info view-display-id-block_1 view-dom-id-54a0d37f626623ee2b56ce7267c67bae">
+      <div class="view view-blog-info view-id-blog_info view-display-id-block_1 view-dom-id-308c74c72f473f22cf35a82028efb455">
         
   
   
@@ -2389,7 +2393,7 @@ if(window.da2a)da2a.script_load();
 <div class="filter-wrapper element-invisible form-wrapper" id="edit-comment-body-und-0-format"></div>
 </div>
 </div></div>
-<input type="hidden" name="form_build_id" value="form-mVdWFCIqyKWDuMY_cc3IkwZO_0afb2JhpZboDBsW-gI">
+<input type="hidden" name="form_build_id" value="form-iL4ZLTJvpdtQMY-cpckKrc-Kb-NlfjHwLQnsuB16ZtI">
 <input type="hidden" name="form_id" value="comment_node_blog_form">
 <div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Save" class="form-submit"></div>
 </div></form>      </div>
@@ -2471,7 +2475,7 @@ if(window.da2a)da2a.script_load();
 </div>
 <input type="submit" id="edit-submit--2" name="op" value="GET MY FREE GUIDE" class="form-submit">
 </div></fieldset>
-<input type="hidden" name="form_build_id" value="form-nmvz5Tji93MYIoKenphiQJWlVD5ywvn7BjhIqeUwBvo">
+<input type="hidden" name="form_build_id" value="form-lNhxWRAsbuhFL8f4B0NToKBYmlWK_10D9CmvBvQXzcI">
 <input type="hidden" name="form_id" value="listrak_api_subscribe_simplified_form">
 </div></form>
 <div class="custom-listrak-subscribe-under-form">
@@ -2576,8 +2580,7 @@ if(window.da2a)da2a.script_load();
   </div>
   </div>
 
-  </div>
-<div class="field-item even" property="schema:articleBody">
+  </div><div class="field-item even" property="schema:articleBody">
 <div id="first-para-wrapper">
 <p>Add some delicious, unusual <strong>fruit crops, fruiting shrubs, and old-time fruit trees </strong>to your yard and garden—bush sour cherries, lingonberries, quince, persimmon, paw paws, and more! Winter is a good time to assess your landscape and see what spaces you would like to fill with fruit. Frankly, we want to plant them all—and wish we had enough room! </p>
 </div>
@@ -2679,6 +2682,8 @@ if(window.da2a)da2a.script_load();
 </div>
 
 
+4
+Mercury Retrograde Dates for 2021
 <div class="two-66-33 at-panel panel-display clearfix print-only" id="article-feature">
     <div class="region region-two-66-33-first">
     <div class="region-inner clearfix">
@@ -2719,7 +2724,7 @@ if(window.da2a)da2a.script_load();
             
     
     <div class="block-content">
-      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-block_1 view-dom-id-0005f529ac7249626c18798dfe3ecbb7">
+      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-block_1 view-dom-id-db19801e836f4af7ec2a565c7987e967">
         
   
   
@@ -2910,7 +2915,7 @@ if(window.da2a)da2a.script_load();
             
     
     <div class="block-content">
-      <div class="view view-Promotion view-id-Promotion view-display-id-panel_pane_1 view-dom-id-074947372d661b1b3ef0b2080251c117">
+      <div class="view view-Promotion view-id-Promotion view-display-id-panel_pane_1 view-dom-id-0dc121620af3da9bb9bad91bd5f6c910">
         
   
   
@@ -2991,7 +2996,7 @@ if(window.da2a)da2a.script_load();
 <div class="filter-wrapper element-invisible form-wrapper" id="edit-comment-body-und-0-format"></div>
 </div>
 </div></div>
-<input type="hidden" name="form_build_id" value="form-zYT0Ebc-WO3L1jdKC8kSyiF5eeh8n1M9XpBH513ZiOE">
+<input type="hidden" name="form_build_id" value="form-ovhaQ-M7TWPakXLeG2nPJV-96wzSVH3DtHLxj0db7XU">
 <input type="hidden" name="form_id" value="comment_node_page_form">
 <div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Save" class="form-submit"></div>
 </div></form>      </div>
@@ -3557,17 +3562,17 @@ the water drain hoses for the H2O conditioner came out of the drain and again wa
 <h2 class="element-invisible">Pages</h2>
 <div class="item-list item-list-pager"><ul class="pager">
 <li class="pager-current even first">1</li>
-<li class="pager-item odd"><a title="Go to page 2" href="/content/mercury-retrograde-dates?page=1">2</a></li>
-<li class="pager-item even"><a title="Go to page 3" href="/content/mercury-retrograde-dates?page=2">3</a></li>
-<li class="pager-item odd"><a title="Go to page 4" href="/content/mercury-retrograde-dates?page=3">4</a></li>
-<li class="pager-item even"><a title="Go to page 5" href="/content/mercury-retrograde-dates?page=4">5</a></li>
-<li class="pager-item odd"><a title="Go to page 6" href="/content/mercury-retrograde-dates?page=5">6</a></li>
-<li class="pager-item even"><a title="Go to page 7" href="/content/mercury-retrograde-dates?page=6">7</a></li>
-<li class="pager-item odd"><a title="Go to page 8" href="/content/mercury-retrograde-dates?page=7">8</a></li>
-<li class="pager-item even"><a title="Go to page 9" href="/content/mercury-retrograde-dates?page=8">9</a></li>
+<li class="pager-item odd"><a title="Go to page 2" href="/content/mercury-retrograde-dates?page=1&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">2</a></li>
+<li class="pager-item even"><a title="Go to page 3" href="/content/mercury-retrograde-dates?page=2&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">3</a></li>
+<li class="pager-item odd"><a title="Go to page 4" href="/content/mercury-retrograde-dates?page=3&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">4</a></li>
+<li class="pager-item even"><a title="Go to page 5" href="/content/mercury-retrograde-dates?page=4&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">5</a></li>
+<li class="pager-item odd"><a title="Go to page 6" href="/content/mercury-retrograde-dates?page=5&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">6</a></li>
+<li class="pager-item even"><a title="Go to page 7" href="/content/mercury-retrograde-dates?page=6&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">7</a></li>
+<li class="pager-item odd"><a title="Go to page 8" href="/content/mercury-retrograde-dates?page=7&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">8</a></li>
+<li class="pager-item even"><a title="Go to page 9" href="/content/mercury-retrograde-dates?page=8&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">9</a></li>
 <li class="pager-ellipsis odd">…</li>
-<li class="pager-next even"><a title="Go to next page" href="/content/mercury-retrograde-dates?page=1">next ›</a></li>
-<li class="pager-last odd last"><a title="Go to last page" href="/content/mercury-retrograde-dates?page=10">last »</a></li>
+<li class="pager-next even"><a title="Go to next page" href="/content/mercury-retrograde-dates?page=1&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">next ›</a></li>
+<li class="pager-last odd last"><a title="Go to last page" href="/content/mercury-retrograde-dates?page=10&amp;trk_msg=EAKH78C1TO1KJEQJ7BDGB9GS1O&amp;trk_contact=LAR07V08K5SIPMMTV4N0UDU48C&amp;trk_sid=NV6AEV75I5PT7MKKDC4V8AC2C0&amp;utm_source=Listrak&amp;utm_medium=Email&amp;utm_term=Mercury%20Retrograde%20Dates%20for%202021%20%28read%20more%29&amp;utm_campaign=Companion%20Weekly&amp;utm_content=WEEKLY">last »</a></li>
 </ul></div>  </div>
     
     
@@ -3624,7 +3629,7 @@ the water drain hoses for the H2O conditioner came out of the drain and again wa
 </div>
 <input type="submit" id="edit-submit--2" name="op" value="GET MY FREE GUIDE" class="form-submit">
 </div></fieldset>
-<input type="hidden" name="form_build_id" value="form-DAjqlAT9iHXHdWWlvbC2JLH0pZsAeZNZtXRqpk8yJhQ">
+<input type="hidden" name="form_build_id" value="form-rYc0TqJxohPRt0jUmz7QS6sElWHLj7o3Aq0Vs4sEzH4">
 <input type="hidden" name="form_id" value="listrak_api_subscribe_simplified_form">
 </div></form>
 <div class="custom-listrak-subscribe-under-form">
@@ -3729,8 +3734,7 @@ the water drain hoses for the H2O conditioner came out of the drain and again wa
   </div>
   </div>
 
-  </div>
-<div class="field-item even" property="schema:articleBody">
+  </div><div class="field-item even" property="schema:articleBody">
 <div id="first-para-wrapper">
 <p>Mercury’s first period of retrograde motion in 2021 lasts from <strong>January 30 to February 21</strong>! According to the age-old practice of astrology, we are all influenced by the effect of Mercury in retrograde. What exactly does it mean for each of us, though? Read on to find out.</p>
 </div>
@@ -3770,6 +3774,8 @@ the water drain hoses for the H2O conditioner came out of the drain and again wa
 </div>
 
 
+5
+Turkey Chili
 <section id="main-content">
 
               
@@ -3835,13 +3841,13 @@ if(window.da2a)da2a.script_load();
 <option value="100">Give Turkey Chili 5/5</option>
 <option value="0">Cancel rating</option></select>
 <div class="description"><div class="fivestar-summary fivestar-summary-average-count">
-<span class="average-rating">Average: <span>3.5</span></span> <span class="total-votes">(<span>17</span> votes)</span>
+<span class="average-rating">Average: <span>3.5</span></span> <span class="total-votes">(<span>18</span> votes)</span>
 </div></div>
 </div>
 
 </div>
 </div>
-<input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate"><input type="hidden" name="form_build_id" value="form-zIsoBmqWJHTk-bVXt7g1A0ZTSs8FfrHKPuwCYWXSO4Q">
+<input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate"><input type="hidden" name="form_build_id" value="form-Xj2N1bFKrUjdkOYvzBnQkwHuxIa4uYE-rKQF0Fl_jeI">
 <input type="hidden" name="form_id" value="fivestar_custom_widget">
 </div></form></div></div></section>    </div>
 
@@ -3874,7 +3880,7 @@ if(window.da2a)da2a.script_load();
             
     
     <div class="block-content">
-      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-default view-dom-id-b0513bf96f5a53a64980a3018f472b10">
+      <div class="view view-primary-image-in-article view-id-primary_image_in_article view-display-id-default view-dom-id-46181e6e88a27587019bcf4598f907ad">
         
   
   
@@ -4076,8 +4082,8 @@ if(window.da2a)da2a.script_load();
 <div id="more_like_this_single" class="more_like_this_4"><a href="/recipe/day-after-turkey-soup" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/soup-turkey-shutterstock_686200696.jpg?itok=iDAMlaM8" alt="Turkey Soup"><h3>Day-After Turkey Soup</h3></a></div>
 <div id="more_like_this_single" class="more_like_this_5"><a href="/recipe/cincinnati-chili" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/recipe-cincinatti-chili.jpg?itok=ACMKxqFq" alt="Recipe for Cincinnati Chili"><h3>Cincinnati Chili</h3></a></div>
 <div id="more_like_this_single" class="more_like_this_6"><a href="/recipe/chili-0" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/recipe-chili_rojo_images_shutterstock.com_.jpg?itok=draT8yCy" alt="Recipe for Chili"><h3>Chili</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_7"><a href="/recipe/green-bean-and-basil-soup" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/recipe-green_brean_basil_soup_wiradana9_ss.jpg?itok=2N_TaDnp" alt="Recipe for Green Bean and Basil Soup"><h3>Green Bean and Basil Soup</h3></a></div>
-<div id="more_like_this_single" class="more_like_this_8"><a href="/recipe/bacon-sausage-and-bean-soup" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/bacon-sausage-bean-soup.png?itok=DcAlW6ka" alt="bacon-sausage-bean-soup"><h3>Bacon, Sausage, and Bean Soup </h3></a></div>
+<div id="more_like_this_single" class="more_like_this_7"><a href="/recipe/bacon-sausage-and-bean-soup" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/bacon-sausage-bean-soup.png?itok=DcAlW6ka" alt="bacon-sausage-bean-soup"><h3>Bacon, Sausage, and Bean Soup </h3></a></div>
+<div id="more_like_this_single" class="more_like_this_8"><a href="/recipe/green-bean-and-basil-soup" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/recipe-green_brean_basil_soup_wiradana9_ss.jpg?itok=2N_TaDnp" alt="Recipe for Green Bean and Basil Soup"><h3>Green Bean and Basil Soup</h3></a></div>
 <div id="more_like_this_single" class="more_like_this_9"><a href="/recipe/irish-beef-stew" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/recipe-irish_beef_stew.jpg?itok=Tm20Mc1C" alt="Recipe for Irish Beef Stew"><h3>Irish Beef Stew</h3></a></div>
 <div id="more_like_this_single" class="more_like_this_10"><a href="/recipe/slow-cooker-jambalaya-soup" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/jambalaya.jpg?itok=3mYeH4k9" alt="jambalaya"><h3>Slow Cooker Jambalaya Soup</h3></a></div>
 <div id="more_like_this_single" class="more_like_this_11"><a href="/recipe/13-bean-good-luck-soup" class="more_like_this"><img src="https://www.almanac.com/sites/default/files/styles/video_thumbnail/public/image_nodes/good-luck-bean-soup.jpg?itok=2Yz7Qdgz" alt="good-luck-bean-soup"><h3>13-Bean Good-Luck Soup</h3></a></div>
@@ -4140,7 +4146,7 @@ if(window.da2a)da2a.script_load();
 <div class="filter-wrapper element-invisible form-wrapper" id="edit-comment-body-und-0-format"></div>
 </div>
 </div></div>
-<input type="hidden" name="form_build_id" value="form--QI3B4c7Ua0neSg3wSNXOLhN9lz9CGZo6SDp56gxd3M">
+<input type="hidden" name="form_build_id" value="form-5P31KPs2xizdiaYnAebfzAxDrIiqI6xzKXXFyYLDHP0">
 <input type="hidden" name="form_id" value="comment_node_recipe_form">
 <div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Save" class="form-submit"></div>
 </div></form>      </div>
@@ -4201,7 +4207,7 @@ if(window.da2a)da2a.script_load();
 </div>
 <input type="submit" id="edit-submit--2" name="op" value="GET MY FREE GUIDE" class="form-submit">
 </div></fieldset>
-<input type="hidden" name="form_build_id" value="form-bR1hDVuxbvVhI8mUlaYiAVt4a5hmELEBfNxe65aT9jY">
+<input type="hidden" name="form_build_id" value="form-fI3fOM2V--AVWsZ-t6AmDlUJH0XBPTF_XQJlNy0ueOc">
 <input type="hidden" name="form_id" value="listrak_api_subscribe_simplified_form">
 </div></form>
 <div class="custom-listrak-subscribe-under-form">
@@ -4322,3 +4328,5 @@ if(window.da2a)da2a.script_load();
         <!-- !Sidebar Regions -->
                 
       </section>
+
+

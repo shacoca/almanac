@@ -1,9 +1,8 @@
 # top ****************************************************
 
 TODO: finish display feature format - pieces print twice
-      too many \n after features w/o subheds
 
-TODO: finish Piece objects?
+TODO: find_or_create_Piece no duplicate Pieces
 
 TODO: make (or find) Section.pieces from Pieces.all; piece.section should return a Section
 

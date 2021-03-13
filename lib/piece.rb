@@ -13,7 +13,7 @@ class Piece
     def self.get_features
         # returns array of Piece obs
         features = []
-        Scraper.scrape_features.each{|piece_data| features << piece_data}
+        Scraper.scrape_featured_pieces.each{|pc| features << pc}
         features
     end
 
@@ -30,15 +30,18 @@ class Piece
     end
 
     def self.find_or_create_piece(piece_hash)
-        if all.any?{|p| p.title == piece_hash[:title]}
-            Piece.all.find{|p| p.title == piece_hash[:title]}
+        if self.all.find{|pc| pc.title == piece_hash[:title]}
+        # if @title == piece_hash[:title]
+            self.all.find{|pc| pc.title == piece_hash[:title]}
         else
-            Piece.new(piece_hash)
+            self.new(piece_hash)
         end
     end
 
     def add_piece_attributes(piece_hash)
+        puts "adding attrs #{piece_hash.keys}"
         piece_hash.each{|key, value| self.send(("#{key}="), value)}
+        puts "#{piece_hash[:title]}"
     end
 
     def self.all
@@ -49,44 +52,63 @@ class Piece
         all.count
     end
 
-    def print_text
-        puts "\e[2J"        # clear screen
-        eof = false
+    def print_recipe
+        puts "\nINGREDIENTS"
+        @body_text.css("div [property*='ingredients']").each{|n| puts n.text}
+        puts "\nINSTRUCTIONS"
+        grafs = @body_text.css("h2 + div.block-content p")
+        grafs.pop
+        grafs.each{|n| puts n.text}
+        puts "\n\n"
+    end
+
+    def print_title_and_subhead
         puts "\n\n\e[1m\e[4m#{@title}\e[0m\n"
         if @subhead == ""
             puts "\n\e[3m\e[7m==================\e[0m\n\n"
         else
             puts "\n\e[3m#{@subhead}\e[0m\n\n"
         end
+    end
 
-        # ********************************************
-        # binding.pry
-        # ********************************************
-        
-        body_text.css("h2, h3, p, ul, ol, li").take_while{|g| !g.text.include?("Source")}.take_while{|g| !g.text.include?("WHAT DO YOU WANT TO READ NEXT?")}.take_while{|g| !g.text.include?("RELATED ARTICLES")}.reject{|g| g.text.include?("Share")}.each do |line|
-        # body_text.css("h2.first, h3, p, ul, ol, li").each do |line|
-            if line.text.include?("Source:")
-                eof = true
-            elsif !eof
-                case line.name
-                # when "h2"
-                #     puts "\n\n      \e[1m#{line.text}\e[0m\n\n" unless line.text.include?("Share:")
-                when "h3"
-                    puts "\n\n  \e[1m\e[3m#{line.text}\e[0m"
-                when "ol", "ul"
-                    # puts "\n----- ----- -----\n"
-                    puts "\n\n"
-                when "li:last-of-type"
-                    puts " -\t#{line.text}\n\n"
-                when "li"
-                    puts " -\t#{line.text}"
-                when "p:last-of-type"
-                    puts line.text
-                    puts "\n\n"
-                when "p"
-                    puts line.text
+    def print_text
+        # puts "\e[2J"        # clear screen
+        print_title_and_subhead
+        no_print = ["Source", "WHAT DO YOU WANT TO READ NEXT?", "RELATED ARTICLES", "Share"]
+        eof = false
+        if @url.include?("recipe")
+            print_recipe
+        else
+            # ********************************************
+            # binding.pry
+            # ********************************************
+            @body_text.last.css("h2, h3, p, ul, ol, li").reject{|g| no_print.include?(g)}.each do |line|
+                # @body_text.css("h2, h3, p, ul, ol, li").reject{|g| no_print.include?(g)}.each do |line|
+                # @body_text.css("h2, h3, p, ul, ol, li").take_while{|g| !g.text.include?("Source")}.take_while{|g| !g.text.include?("WHAT DO YOU WANT TO READ NEXT?")}.take_while{|g| !g.text.include?("RELATED ARTICLES")}.reject{|g| g.text.include?("Share")}.each do |line|
+            # body_text.css("h2.first, h3, p, ul, ol, li").each do |line|
+                if line.text.include?("Source:")
+                    eof = true
+                elsif !eof
+                    case line.name
+                    # when "h2"
+                    #     puts "\n\n      \e[1m#{line.text}\e[0m\n\n" unless line.text.include?("Share:")
+                    when "h3"
+                        puts "\n\n  \e[1m\e[3m#{line.text}\e[0m"
+                    when "ol", "ul"
+                        # puts "\n----- ----- -----\n"
+                        puts "\n\n"
+                    when "li:last-of-type"
+                        puts " -\t#{line.text}\n\n"
+                    when "li"
+                        puts " -\t#{line.text}"
+                    when "p:last-of-type"
+                        puts line.text
+                        puts "\n\n"
+                    when "p"
+                        puts line.text
+                    end
+
                 end
-
             end
         end
         puts "\n\n"

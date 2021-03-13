@@ -7,7 +7,7 @@ class Scraper
         @main_site = Nokogiri::HTML(open(url))
     end
 
-    def self.scrape_features
+    def self.scrape_featured_pieces
         features = []
         @main_site.css("div .view-display-id-block_8").each {|f| features << scrape_piece(f.css("div.news-wrapper a")[1].attr("href"))}
         # binding.pry
@@ -16,6 +16,7 @@ class Scraper
 
     def self.scrape_piece(ext) # returns Piece
         # binding.pry
+        # *******************************************************************
         piece_data = Nokogiri::HTML(open(SITE + ext)) # now determine article or recipe
         if ext.include?("/recipe/") || ext.include?("-recipe-")
             scrape_recipe(piece_data)
@@ -82,6 +83,8 @@ class Scraper
     def self.get_section_front(section)
         Nokogiri::HTML(open(SITE + section))
     end
+
+        # *******************************************************************
 
     def self.scrape_and_create_section_pieces(sec_url)
         pieces = []

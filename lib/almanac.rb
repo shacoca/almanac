@@ -2,7 +2,7 @@ require_relative "../config/environment.rb"
 
 module Almanac
 
-  class Almanac
+  class Issue
  
     attr_accessor :site, :features, :issue_date, :closed, :first_run
 
@@ -16,7 +16,8 @@ module Almanac
     end
 
     def welcome
-      puts "\e[2J"        # clear screen
+      puts "\n\n"
+      # puts "\e[2J"        # clear screen
       pause_unit = 0.18
       puts "\n\n#{@site.css("h1").text}\n"
       foot = @site.css("div#footerinfo").text.partition("P.")
@@ -57,7 +58,7 @@ module Almanac
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
       sec_names = Scraper.get_section_names
       sec_names.each_with_index do |sec_name, i|
-        puts "#{i + 1 + features.count}. #{sec_name}\n"
+        puts "#{i + 1 + @features.count}. #{sec_name}\n"
       end
     end
 
@@ -75,11 +76,11 @@ module Almanac
       if choice >= 0 && choice < @features.count
         @features[choice].print_text
 
-      elsif choice >= features.count && choice <= features.count + 1 + sections.count
+      elsif choice >= @features.count && choice < @features.count + sections.count
         # puts "\n"
-        puts ["Grabbing that section for ya..... ", "Hold on, I'll get that.....", "Just a moment while grab that.....", "OK. Just a sec....."].sample
+        puts ["Grabbing that section for ya..... ", "Hold on, I'll get that.....", "Just a moment while grab that.....", "OK. Just a sec.....", "Coming right up....."].sample
         puts "\n"
-        display_selected_section_fp_menu(sections[choice - sections.count].attr("href"))
+        display_selected_section_fp_menu(sections[choice - @features.count].attr("href"))
       elsif choice < 0
         close_the_almanac
       else
@@ -108,7 +109,9 @@ module Almanac
     end
 
     def sections
-      @site.css("div ul#superfish-1 li a.sf-depth-1")
+      secs = @site.css("div ul#superfish-1 li a.sf-depth-1")
+      secs.pop
+      secs
     end
 
     def display_selected_section_fp_menu(section_url)

@@ -12,6 +12,7 @@ require 'net/http'
 require 'uri'
 require 'open-uri'
 require 'nokogiri'
+require 'json'
 require 'pry'
 
 require "bundler/setup"

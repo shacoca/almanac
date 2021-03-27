@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 
 class Piece
-    attr_accessor :title, :subhead, :section, :pubdate, :author, :url, :text
+    attr_accessor :title, :pubdate, :author, :url, :body_text, :subhead # :section
 
     @@all = []
 
@@ -10,31 +10,56 @@ class Piece
         save
     end
 
-    def create_from_scrape(piece_hash = {title: "hhaaaaaaaaay!!", subhead: "wuddup?", section: "not_a_section_object", pubdate: Time.new.localtime.inspect, author: "Haywood Jackson", url: "404"})
-        Piece.new(piece_hash)
+    def self.get_features
+        # returns array of Piece obs
+        features = []
+        Scraper.scrape_featured_pieces.each{|pc| features << pc}
+        features
+    end
+
+    def self.get_section_pieces(url)
+        Scraper.scrape_and_create_section_pieces(url)
     end
 
     def save
         @@all << self
     end
 
+    def self.clear
+        @@all.clear
+    end
+
+    def self.find_or_create_piece(piece_hash)
+        if self.all.find{|pc| pc.title == piece_hash[:title]}
+        # if @title == piece_hash[:title]
+            self.all.find{|pc| pc.title == piece_hash[:title]}
+        else
+            self.new(piece_hash)
+        end
+    end
+
     def add_piece_attributes(piece_hash)
-        # puts "adding attrs #{piece_hash.keys}"
+        puts "adding attrs #{piece_hash.keys}"
         piece_hash.each{|key, value| self.send(("#{key}="), value)}
-        # puts "#{piece_hash[:title]}"
+        puts "#{piece_hash[:title]}"
     end
 
     def self.all
         @@all
     end
 
-    def section=(section)
-        @section = section
-        section.new_piece(self)
+    def self.count
+        all.count
     end
 
-    def text=(url)
-        Scraper.scrape_piece_text(url)
+    def print_recipe
+        puts "\nINGREDIENTS"
+        @body_text.css("div [property*='ingredients']").each{|n| puts n.text}
+        puts "\nINSTRUCTIONS"
+        grafs = @body_text.css("h2 + div.block-content p")
+        grafs.pop
+        grafs.each{|n| puts n.text}
+        puts "\n\n"
     end
 
     def print_title_and_subhead
@@ -44,12 +69,48 @@ class Piece
         else
             puts "\n\e[3m#{@subhead}\e[0m\n\n"
         end
-
-        if @author == ""
-            puts "\n\e[3m\e[7m==================\e[0m\n\n"
-        else
-            puts "\nby #{@author}\n\n"
-        end
     end
 
+    def print_text
+        # puts "\e[2J"        # clear screen
+        print_title_and_subhead
+        no_print = ["Source", "WHAT DO YOU WANT TO READ NEXT?", "RELATED ARTICLES", "Share"]
+        eof = false
+        if @url.include?("recipe")
+            print_recipe
+        else
+            # ********************************************
+            # binding.pry
+            # ********************************************
+            @body_text.last.css("h2, h3, p, ul, ol, li").reject{|g| no_print.include?(g)}.each do |line|
+                # @body_text.css("h2, h3, p, ul, ol, li").reject{|g| no_print.include?(g)}.each do |line|
+                # @body_text.css("h2, h3, p, ul, ol, li").take_while{|g| !g.text.include?("Source")}.take_while{|g| !g.text.include?("WHAT DO YOU WANT TO READ NEXT?")}.take_while{|g| !g.text.include?("RELATED ARTICLES")}.reject{|g| g.text.include?("Share")}.each do |line|
+            # body_text.css("h2.first, h3, p, ul, ol, li").each do |line|
+                if line.text.include?("Source:")
+                    eof = true
+                elsif !eof
+                    case line.name
+                    # when "h2"
+                    #     puts "\n\n      \e[1m#{line.text}\e[0m\n\n" unless line.text.include?("Share:")
+                    when "h3"
+                        puts "\n\n  \e[1m\e[3m#{line.text}\e[0m"
+                    when "ol", "ul"
+                        # puts "\n----- ----- -----\n"
+                        puts "\n\n"
+                    when "li:last-of-type"
+                        puts " -\t#{line.text}\n\n"
+                    when "li"
+                        puts " -\t#{line.text}"
+                    when "p:last-of-type"
+                        puts line.text
+                        puts "\n\n"
+                    when "p"
+                        puts line.text
+                    end
+
+                end
+            end
+        end
+        puts "\n\n"
+    end
 end

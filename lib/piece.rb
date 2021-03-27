@@ -59,4 +59,11 @@ class Piece
         end
     end
 
+        if @author == ""
+            puts "\n\e[3m\e[7m==================\e[0m\n\n"
+        else
+            puts "\nby #{@author}\n\n"
+        end
+    end
+
 end

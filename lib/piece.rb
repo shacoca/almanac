@@ -19,8 +19,9 @@ class Piece
     end
 
     def add_piece_attributes(piece_hash)
-        piece_hash.each {|key, value| self.send(("#{key}="), value)}
-        self
+        # puts "adding attrs #{piece_hash.keys}"
+        piece_hash.each{|key, value| self.send(("#{key}="), value)}
+        # puts "#{piece_hash[:title]}"
     end
 
     def self.all
@@ -36,8 +37,24 @@ class Piece
         Scraper.scrape_piece_text(url)
     end
 
+<<<<<<< Updated upstream
     def self.count
         all.count
+=======
+    def print_title_and_subhead
+        puts "\n\n\e[1m\e[4m#{@title}\e[0m\n"
+        if @subhead == ""
+            puts "\n\e[3m\e[7m==================\e[0m\n\n"
+        else
+            puts "\n\e[3m#{@subhead}\e[0m\n\n"
+        end
+
+        if @author == ""
+            puts "\n\e[3m\e[7m==================\e[0m\n\n"
+        else
+            puts "\nby #{@author}\n\n"
+        end
+>>>>>>> Stashed changes
     end
 
 end

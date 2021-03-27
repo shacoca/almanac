@@ -37,10 +37,6 @@ class Piece
         Scraper.scrape_piece_text(url)
     end
 
-<<<<<<< Updated upstream
-    def self.count
-        all.count
-=======
     def print_title_and_subhead
         puts "\n\n\e[1m\e[4m#{@title}\e[0m\n"
         if @subhead == ""
@@ -54,7 +50,6 @@ class Piece
         else
             puts "\nby #{@author}\n\n"
         end
->>>>>>> Stashed changes
     end
 
 end

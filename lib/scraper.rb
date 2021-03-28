@@ -1,14 +1,14 @@
 require_relative "../config/environment.rb"
 
 class Scraper
-    attr_accessor :main_site, :piece_page, :title, :pubdate, :author, :url, :body_text, :subhead
+    # attr_accessor :main_site, :title, :pubdate, :author, :url, :body_text, :subhead
 
     def self.scrape_main_site(url)
         @main_site = Nokogiri::HTML(open(url))
     end
 
     def self.scrape_featured_pieces
-        features = []
+        features = [] # arr of Piece obs
         @main_site.css("div .view-display-id-block_8").each {|f| features << scrape_piece(f.css("div.news-wrapper a")[1].attr("href"))}
         # binding.pry
         features

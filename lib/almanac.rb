@@ -12,19 +12,17 @@ module Almanac
       @closed = false
       @first_run = true
       @issue_date = site.css(".block-title a")[0].text
-      # @issue = issue:
     end
 
     def welcome
       puts "\n\n"
-      # puts "\e[2J"        # clear screen
       pause_unit = 0.18
       puts "\n\n#{@site.css("h1").text}\n"
       foot = @site.css("div#footerinfo").text.partition("P.")
-      puts "#{foot.first}\n#{foot[1]}#{foot.last}\n\n"        # masthead info
+      puts "#{foot.first}\n#{foot[1]}#{foot.last}\n\n" # masthead info
       sleep (pause_unit * 4)
 
-      puts "Today is #{@issue_date}"        # greeting
+      puts "Today is #{@issue_date}"  # greeting
       sleep (pause_unit * 2)
       puts @site.css("p#calendar_dayofyear").text
       sleep (pause_unit * 2)
@@ -56,14 +54,11 @@ module Almanac
 
     def section_menu
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
-      sec_names = Scraper.get_section_names
-      sec_names.each_with_index do |sec_name, i|
-        puts "#{i + 1 + @features.count}. #{sec_name}\n"
-      end
+      sections.each_with_index{|sec_name, i| puts "#{i + 1 + @features.count}. #{sec_name.text}\n"}
     end
 
     def choose
-      print "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion above or browse a section. (0 to exit) "
+      print "\n\e[1mEnter a number\e[22m to read a feature from Today's Companion or browse a section. (0 to exit) "
 
       user_input = gets.strip
       print "\nYou chose #{user_input}. "

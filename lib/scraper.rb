@@ -18,7 +18,7 @@ class Scraper
         # binding.pry
         # *******************************************************************
         piece_data = Nokogiri::HTML(open(SITE + ext)) # now determine article or recipe
-        if ext.include?("/recipe/") || ext.include?("-recipe-")
+        if ext.include?("/recipe/")# || ext.include?("-recipe-")
             scrape_recipe(piece_data)
         else
             scrape_article(piece_data)

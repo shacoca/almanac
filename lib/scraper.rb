@@ -72,12 +72,13 @@ class Scraper
     end
 
     def self.get_section_names
-        secs = []
+        sec_names = []
         @main_site.css("div ul#superfish-1 li a.sf-depth-1").each do |u|
-            secs << u.attr("href").gsub("/", "").capitalize
+            sec_names << u.attr("href").gsub("/", "").capitalize
+            Section.find_or_create_from_url(u.attr("href"))
             end
-        secs.pop
-        secs
+        sec_names.pop
+        sec_names
     end
 
     def self.get_section_front(section)

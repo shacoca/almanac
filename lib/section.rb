@@ -49,6 +49,7 @@ class Section
             all.find{|s| s.url == url}
         else
             self.new
+        end
     end
 
     def self.count

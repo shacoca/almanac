@@ -4,7 +4,7 @@ module Almanac
 
   class Issue
  
-    attr_accessor :site, :features, :issue_date, :closed, :first_run
+    attr_accessor :site, :features, :issue_date, :closed, :first_run, :sections
 
     def initialize(url)
       @site = Scraper.scrape_main_site(url)

@@ -8,7 +8,8 @@ module Almanac
 
     def initialize(url)
       @site = Scraper.scrape_main_site(url)
-      @features = Piece.get_features #array of Piece obs
+      @sections = Scraper.get_sections
+      @features = Scraper.scrape_front_page #array of Piece obs
       @closed = false
       @first_run = true
       @issue_date = site.css(".block-title a")[0].text
@@ -54,7 +55,7 @@ module Almanac
 
     def section_menu
       puts "\n    \e[4mSECTIONS\e[0m\n\n"
-      sections.each_with_index{|sec_name, i| puts "#{i + 1 + @features.count}. #{sec_name.text}\n"}
+      sections.each_with_index{|sec, i| puts "#{i + 1 + @features.count}. #{sec.name.capitalize}\n"}
     end
 
     def choose
@@ -75,7 +76,7 @@ module Almanac
         # puts "\n"
         puts ["Grabbing that section for ya..... ", "Hold on, I'll get that.....", "Just a moment while grab that.....", "OK. Just a sec.....", "Coming right up....."].sample
         puts "\n"
-        display_selected_section_fp_menu(sections[choice - @features.count].attr("href"))
+        display_selected_section_fp_menu(choice - @features.count)
       elsif choice < 0
         close_the_almanac
       else
@@ -103,15 +104,15 @@ module Almanac
       new_lines
     end
 
-    def sections
-      secs = @site.css("div ul#superfish-1 li a.sf-depth-1")
-      secs.pop
-      secs
-    end
+    # def sections
+    #   secs = @site.css("div ul#superfish-1 li a.sf-depth-1")
+    #   secs.pop
+    #   secs
+    # end
 
-    def display_selected_section_fp_menu(section_url)
-      sec_pcs = Piece.get_section_pieces(section_url)
+    def display_selected_section_fp_menu(section)
       # binding.pry
+      sec_pcs = sections[section].get_section_pieces
       # sec_pcs = fp.css("div.view-content div a").reject{|i| i.css("h2").text == ""}
       sec_pcs.each_with_index{|el, i| puts "#{i + 1}. #{el.title}"}
       print "\nEnter a number: "

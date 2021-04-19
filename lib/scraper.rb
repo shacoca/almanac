@@ -7,24 +7,28 @@ class Scraper
         @main_site = Nokogiri::HTML(open(url))
     end
 
-    def self.scrape_featured_pieces
-        features = [] # arr of Piece obs
-        @main_site.css("div .view-display-id-block_8").each {|f| features << scrape_piece(f.css("div.news-wrapper a")[1].attr("href"))}
+    def self.scrape_front_page
+        fp_pieces = [] # arr of Piece obs
+
+        @main_site.css("div .view-display-id-block_8").each { |f| fp_pieces << scrape_piece(f.css("div.news-wrapper a")[1].attr("href"))}
         # binding.pry
-        features
+        fp_pieces
     end
 
     def self.scrape_piece(ext) # returns Piece
-        # binding.pry
-        # *******************************************************************
-        piece_data = Nokogiri::HTML(open(SITE + ext)) # now determine article or recipe
-        if ext.include?("/recipe/")# || ext.include?("-recipe-")
-            scrape_recipe(piece_data)
-        else
-            scrape_article(piece_data)
-        end
+        # if Piece.all.each{|pc| pc.url}.include?(SITE + ext)
+            # scrape = Piece.all.find{|pc| pc.url == SITE + ext}
+        # else
+            piece_data = Nokogiri::HTML(open(SITE + ext)) # now determine article or recipe
+            if ext.include?("/recipe/")# || ext.include?("-recipe-")
+                scrape_recipe(piece_data)
+            else
+                scrape_article(piece_data)
+            end
 
-        Piece.find_or_create_piece({title: @title, pubdate: @pubdate, author: @author, url: @url, body_text: @body_text, subhead: @subhead})
+            Piece.find_or_create_piece({title: @title, pubdate: @pubdate, author: @author, url: @url, body_text: @body_text, subhead: @subhead})
+        # end
+        # scrape
     end
 
     def self.scrape_article(piece_data)
@@ -71,27 +75,20 @@ class Scraper
         "#{months[raw_date.slice(5,2)]} #{raw_date.slice(8,2)}, #{raw_date.slice(0,4)}"
     end
 
-    def self.get_section_names
-        sec_names = []
-        @main_site.css("div ul#superfish-1 li a.sf-depth-1").each do |u|
-            sec_names << u.attr("href").gsub("/", "").capitalize
-            Section.find_or_create_from_url(u.attr("href"))
-            end
-        sec_names.pop
-        sec_names
+    def self.get_sections
+        sections = []
+        secs = @main_site.css("div ul#superfish-1 li a.sf-depth-1")
+        secs.pop
+        secs.each{|u| sections << Section.new(u.attr("href").gsub("/", ""), u.attr("href"))}
+        sections
     end
 
     def self.get_section_front(section)
         Nokogiri::HTML(open(SITE + section))
     end
 
-        # *******************************************************************
-
-    def self.scrape_and_create_section_pieces(sec_url)
-        pieces = []
-        page = get_section_front(sec_url)
-        page.css("#block-system-main .block-content .view-content a").each{|u| pieces << scrape_piece(u.attr("href"))}
-        pieces
+    def self.get_section_pieces(section)
+        Nokogiri::HTML(open(SITE + section))
     end
 
 end

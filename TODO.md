@@ -1,1 +1,1 @@
-TODO: Pieces should have a "section" attribute
+TODO: Sections need Pieces

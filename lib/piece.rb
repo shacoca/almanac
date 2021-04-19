@@ -1,7 +1,8 @@
 require_relative "../config/environment.rb"
 
 class Piece
-    attr_accessor :title, :pubdate, :author, :url, :body_text, :subhead # :section
+    attr_accessor :title, :pubdate, :author, :url, :body_text, :subhead, :featured
+    attr_reader :section
 
     @@all = []
 
@@ -10,15 +11,9 @@ class Piece
         save
     end
 
-    def self.get_features
-        # returns array of Piece obs
-        features = []
-        Scraper.scrape_featured_pieces.each{|pc| features << pc}
-        features
-    end
-
-    def self.get_section_pieces(url)
-        Scraper.scrape_and_create_section_pieces(url)
+    def section=(sec)
+        @section ||= sec
+        sec.add_piece(self)
     end
 
     def save
@@ -31,7 +26,6 @@ class Piece
 
     def self.find_or_create_piece(piece_hash)
         if self.all.find{|pc| pc.title == piece_hash[:title]}
-        # if @title == piece_hash[:title]
             self.all.find{|pc| pc.title == piece_hash[:title]}
         else
             self.new(piece_hash)
@@ -39,9 +33,9 @@ class Piece
     end
 
     def add_piece_attributes(piece_hash)
-        puts "adding attrs #{piece_hash.keys}"
+        # puts "\nadding attrs #{piece_hash.keys}"
         piece_hash.each{|key, value| self.send(("#{key}="), value)}
-        puts "#{piece_hash[:title]}"
+        # puts "#{piece_hash[:title]}\n"
     end
 
     def self.all
@@ -79,13 +73,7 @@ class Piece
         if @url.include?("recipe")
             print_recipe
         else
-            # ********************************************
-            # binding.pry
-            # ********************************************
             @body_text.last.css("h2, h3, p, ul, ol, li").reject{|g| no_print.include?(g)}.each do |line|
-                # @body_text.css("h2, h3, p, ul, ol, li").reject{|g| no_print.include?(g)}.each do |line|
-                # @body_text.css("h2, h3, p, ul, ol, li").take_while{|g| !g.text.include?("Source")}.take_while{|g| !g.text.include?("WHAT DO YOU WANT TO READ NEXT?")}.take_while{|g| !g.text.include?("RELATED ARTICLES")}.reject{|g| g.text.include?("Share")}.each do |line|
-            # body_text.css("h2.first, h3, p, ul, ol, li").each do |line|
                 if line.text.include?("Source:")
                     eof = true
                 elsif !eof

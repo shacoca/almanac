@@ -8,3 +8,6 @@
 /spec/reports/
 /tmp/
 *.txt
+/.DS_Store
+/lib/.DS_Store
+

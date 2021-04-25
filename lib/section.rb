@@ -1,7 +1,6 @@
 require_relative "../config/environment.rb"
 
 class Section
-    attr_accessor :pieces
     attr_reader :name, :url
 
     @@all = []
@@ -9,7 +8,6 @@ class Section
     def initialize(name, url)
         @name = name
         @url = url
-        @pieces = []
         save
     end
 
@@ -22,12 +20,12 @@ class Section
     end
 
     def pieces
-        @pieces
+        Piece.all.select{|pc| pc.section == self}
     end
 
     def add_piece(piece)
         pieces << piece unless pieces.include?(piece)
-        piece.section = self unless piece.section
+        piece.section ||= self
     end
 
     def front_page #returns Noko ob
@@ -35,13 +33,14 @@ class Section
     end
       
     def get_section_pieces
-        pieces = []
+        scrape = Scraper.new(SITE)
+        sec_pieces = []
         front_page.css("#block-system-main .block-content .view-content a").each do |pc|
-            new_piece = Scraper.scrape_piece(pc.attr("href"))
-            pieces << new_piece
+            new_piece = scrape.scrape_piece(pc.attr("href"))
+            sec_pieces << new_piece
             add_piece(new_piece)
         end
-        pieces
+        sec_pieces
     end
 
     # def self.new_from_piece(piece)

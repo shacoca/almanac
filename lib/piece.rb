@@ -1,19 +1,20 @@
 require_relative "../config/environment.rb"
 
 class Piece
-    attr_accessor :title, :pubdate, :author, :url, :body_text, :subhead, :featured
+    attr_accessor :title, :pubdate, :author, :url, :body_text, :subhead
     attr_reader :section
 
     @@all = []
 
     def initialize(piece_hash)
         add_piece_attributes(piece_hash)
+        @section = @url
         save
     end
 
-    def section=(sec)
-        @section ||= sec
-        sec.add_piece(self)
+    def section=(url)
+        /\/\w+\//.match(url) && /\/\w+\//.match(url)[0][-1] == "/" ? @section = /\/\w+\//.match(url)[0].gsub("/","") : @section = ""
+        @section.add_piece(self)
     end
 
     def save

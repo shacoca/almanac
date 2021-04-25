@@ -4,15 +4,17 @@ module Almanac
 
   class Issue
  
-    attr_accessor :site, :features, :issue_date, :closed, :first_run, :sections
+    attr_accessor :site, :sections, :features, :issue_date, :closed, :first_run # :pieces
 
     def initialize(url)
-      @site = Scraper.scrape_main_site(url)
-      @sections = Scraper.get_sections
-      @features = Scraper.scrape_front_page #array of Piece obs
+      scrape = Scraper.new(url)
+      @site = scrape.main_site
+      # @pieces = []
+      @sections = scrape.get_sections
+      @features = scrape.scrape_front_page #array of Piece obs
+      @issue_date = site.css(".block-title a")[0].text
       @closed = false
       @first_run = true
-      @issue_date = site.css(".block-title a")[0].text
     end
 
     def welcome
